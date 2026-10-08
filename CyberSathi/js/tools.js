@@ -28,6 +28,7 @@
   let currentQuizIdx = 0;
   let quizScore = 0;
   let quizAnswered = false;
+  let lastChosenIdx = null;
 
   // Preload SpeechSynthesis voices cleanly for Chrome/Edge
   if (typeof window !== 'undefined' && window.speechSynthesis) {
@@ -882,6 +883,29 @@
     initQuiz();
     renderSchemes();
     initI4CMap();
+
+    // Universal language change listeners to keep quiz in sync
+    document.addEventListener('cybersathi-lang-change', () => {
+      if (document.getElementById('quizApp')) {
+        renderQuizQuestion();
+      }
+    });
+
+    window.addEventListener('languageChanged', () => {
+      if (document.getElementById('quizApp')) {
+        renderQuizQuestion();
+      }
+    });
+
+    document.querySelectorAll('#siteLangSelect, #language, .lang-select').forEach(sel => {
+      sel.addEventListener('change', () => {
+        setTimeout(() => {
+          if (document.getElementById('quizApp')) {
+            renderQuizQuestion();
+          }
+        }, 50);
+      });
+    });
   }
 
   // ==========================================
@@ -1795,14 +1819,92 @@
   }
 
   // ==========================================
-  // 2. Interactive Cyber Safety Quiz Engine
+  // 2. Interactive Cyber Safety Quiz Engine (Multilingual EN / HI / MR)
   // ==========================================
+  const QUIZ_UI = {
+    en: {
+      questionProgress: (curr, total) => `Question ${curr} of ${total}`,
+      scoreLabel: (score) => `Score: ${score}`,
+      readQuestion: '🔊 Read Question',
+      nextQuestion: 'Next Question →',
+      correctPrefix: '<strong>✓ Correct!</strong>',
+      incorrectPrefix: '<strong>✕ Incorrect.</strong>',
+      championBadge: '🏆 Cyber Safety Champion!',
+      goodBadge: '👍 Good Awareness!',
+      learnBadge: '📚 Keep Learning!',
+      resultSummary: (score, total, pct) => `You scored <strong>${score} out of ${total}</strong> (${pct}%).`,
+      retakeBtn: '🔄 Retake Quiz',
+      reviewTopicsBtn: 'Review Safety Topics'
+    },
+    hi: {
+      questionProgress: (curr, total) => `प्रश्न ${curr} / ${total}`,
+      scoreLabel: (score) => `स्कोर: ${score}`,
+      readQuestion: '🔊 प्रश्न सुनें',
+      nextQuestion: 'अगला प्रश्न →',
+      correctPrefix: '<strong>✓ सही उत्तर!</strong>',
+      incorrectPrefix: '<strong>✕ गलत उत्तर।</strong>',
+      championBadge: '🏆 साइबर सुरक्षा चैंपियन!',
+      goodBadge: '👍 अच्छी जागरूकता!',
+      learnBadge: '📚 सीखते रहें!',
+      resultSummary: (score, total, pct) => `आपने <strong>${total} में से ${score}</strong> अंक प्राप्त किए (${pct}%)।`,
+      retakeBtn: '🔄 पुनः क्विज़ दें',
+      reviewTopicsBtn: 'सुरक्षा विषय देखें'
+    },
+    mr: {
+      questionProgress: (curr, total) => `प्रश्न ${curr} / ${total}`,
+      scoreLabel: (score) => `गुण: ${score}`,
+      readQuestion: '🔊 प्रश्न ऐका',
+      nextQuestion: 'पुढील प्रश्न →',
+      correctPrefix: '<strong>✓ बरोबर उत्तर!</strong>',
+      incorrectPrefix: '<strong>✕ चुकीचे उत्तर.</strong>',
+      championBadge: '🏆 सायबर सुरक्षा चॅम्पियन!',
+      goodBadge: '👍 उत्तम जागरूकता!',
+      learnBadge: '📚 शिकत राहा!',
+      resultSummary: (score, total, pct) => `तुम्ही <strong>${total} पैकी ${score}</strong> गुण मिळवले (${pct}%).`,
+      retakeBtn: '🔄 पुन्हा क्विझ द्या',
+      reviewTopicsBtn: 'सुरक्षा विषय पहा'
+    }
+  };
+
+  function getLocalizedText(val, lang) {
+    if (!val) return '';
+    if (typeof val === 'string') return val;
+    return val[lang] || val.en || Object.values(val)[0] || '';
+  }
+
+  function getLocalizedOptions(q, lang) {
+    if (!q) return [];
+    if (q.options && typeof q.options === 'object' && !Array.isArray(q.options)) {
+      return q.options[lang] || q.options.en || Object.values(q.options)[0] || [];
+    }
+    if (Array.isArray(q.options)) return q.options;
+    return [];
+  }
+
+  let quizLangListenersAttached = false;
+  function attachQuizLangListeners() {
+    if (quizLangListenersAttached) return;
+    quizLangListenersAttached = true;
+    const onLang = () => {
+      if (document.getElementById('quizApp')) {
+        renderQuizQuestion();
+      }
+    };
+    document.addEventListener('cybersathi-lang-change', onLang);
+    window.addEventListener('languageChanged', onLang);
+    document.querySelectorAll('#siteLangSelect, #language, .lang-select').forEach(sel => {
+      sel.addEventListener('change', onLang);
+    });
+  }
+
   function initQuiz() {
     const container = document.getElementById('quizApp');
     if (!container) return;
+    attachQuizLangListeners();
     currentQuizIdx = 0;
     quizScore = 0;
     quizAnswered = false;
+    lastChosenIdx = null;
     renderQuizQuestion();
   }
 
@@ -1812,12 +1914,15 @@
     const quizList = getQuizQuestions();
     if (!quizList.length) return;
 
+    const lang = getLang();
+    const ui = QUIZ_UI[lang] || QUIZ_UI.en;
+
     if (currentQuizIdx >= quizList.length) {
       if (getStore() && getStore().saveQuizAttempt) {
         getStore().saveQuizAttempt(quizScore, quizList.length);
       }
       const percentage = Math.round((quizScore / quizList.length) * 100);
-      const badge = percentage >= 80 ? '🏆 Cyber Safety Champion!' : percentage >= 60 ? '👍 Good Awareness!' : '📚 Keep Learning!';
+      const badge = percentage >= 80 ? ui.championBadge : percentage >= 60 ? ui.goodBadge : ui.learnBadge;
 
       container.innerHTML = `
         <div class="card" style="text-align: center; padding: 40px 24px;">
@@ -1826,14 +1931,14 @@
             ${badge}
           </h2>
           <p style="font-size: 16px; color: var(--cs-muted); margin-bottom: 24px;">
-            You scored <strong>${quizScore} out of ${quizList.length}</strong> (${percentage}%).
+            ${ui.resultSummary(quizScore, quizList.length, percentage)}
           </p>
           <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
             <button class="btn btn-primary" id="btnRestartQuiz">
-              <span>🔄 Retake Quiz</span>
+              <span>${ui.retakeBtn}</span>
             </button>
             <a href="topics.html" class="btn btn-outline">
-              <span>Review Safety Topics</span>
+              <span>${ui.reviewTopicsBtn}</span>
             </a>
           </div>
         </div>
@@ -1848,6 +1953,12 @@
 
     const q = quizList[currentQuizIdx];
     const progressPercent = ((currentQuizIdx + 1) / quizList.length) * 100;
+    const qText = getLocalizedText(q.question, lang);
+    const qOpts = getLocalizedOptions(q, lang);
+    const qExpl = getLocalizedText(q.explanation, lang);
+
+    const isAnswered = quizAnswered;
+    const isCorrect = isAnswered && lastChosenIdx === q.answer;
 
     container.innerHTML = `
       <div class="card">
@@ -1856,31 +1967,40 @@
         </div>
         
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; font-size: 13px; font-weight: 700; color: var(--cs-muted);">
-          <span>Question ${currentQuizIdx + 1} of ${quizList.length}</span>
-          <span>Score: ${quizScore}</span>
+          <span>${ui.questionProgress(currentQuizIdx + 1, quizList.length)}</span>
+          <span>${ui.scoreLabel(quizScore)}</span>
         </div>
 
         <h3 style="font-family: 'Outfit', sans-serif; font-size: 18px; line-height: 1.4; color: var(--cs-deep); margin-bottom: 20px;">
-          ${q.question}
+          ${qText}
         </h3>
 
         <div class="quiz-options-list">
-          ${q.options.map((opt, i) => `
-            <button class="quiz-option-btn" data-opt-idx="${i}">
-              <span style="display: inline-block; width: 24px; font-weight: 800; color: var(--cs-deep);">${String.fromCharCode(65 + i)}.</span>
-              ${opt}
-            </button>
-          `).join('')}
+          ${qOpts.map((opt, i) => {
+            let stateClass = '';
+            if (isAnswered) {
+              if (i === q.answer) stateClass = 'correct';
+              else if (i === lastChosenIdx) stateClass = 'wrong';
+            }
+            return `
+              <button class="quiz-option-btn ${stateClass}" data-opt-idx="${i}" ${isAnswered ? 'disabled' : ''}>
+                <span style="display: inline-block; width: 24px; font-weight: 800; color: var(--cs-deep);">${String.fromCharCode(65 + i)}.</span>
+                ${opt}
+              </button>
+            `;
+          }).join('')}
         </div>
 
-        <div id="quizExplanation" style="display: none; padding: 14px 18px; border-radius: var(--cs-radius-sm); margin: 18px 0; font-size: 14px; line-height: 1.5;"></div>
+        <div id="quizExplanation" style="${isAnswered ? 'display: block;' : 'display: none;'} padding: 14px 18px; border-radius: var(--cs-radius-sm); margin: 18px 0; font-size: 14px; line-height: 1.5; ${isAnswered ? (isCorrect ? 'background: color-mix(in srgb, var(--cs-green) 12%, var(--cs-card-bg)); border: 1px solid var(--cs-green);' : 'background: color-mix(in srgb, var(--cs-danger) 10%, var(--cs-card-bg)); border: 1px solid var(--cs-danger);') : ''}">
+          ${isAnswered ? (isCorrect ? `${ui.correctPrefix} ${qExpl}` : `${ui.incorrectPrefix} ${qExpl}`) : ''}
+        </div>
 
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 20px;">
           <button class="btn btn-outline" id="btnListenQuizQ" style="padding: 8px 16px; font-size: 13px;">
-            🔊 Read Question
+            ${ui.readQuestion}
           </button>
-          <button class="btn btn-primary" id="btnNextQuizQ" disabled>
-            Next Question →
+          <button class="btn btn-primary" id="btnNextQuizQ" ${isAnswered ? '' : 'disabled'}>
+            ${ui.nextQuestion}
           </button>
         </div>
       </div>
@@ -1891,47 +2011,55 @@
     const nextBtn = document.getElementById('btnNextQuizQ');
     const listenBtn = document.getElementById('btnListenQuizQ');
 
-    optionBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        if (quizAnswered) return;
-        quizAnswered = true;
+    if (!isAnswered) {
+      optionBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          if (quizAnswered) return;
+          quizAnswered = true;
 
-        const chosenIdx = Number(btn.dataset.optIdx);
-        if (chosenIdx === q.answer) {
-          quizScore++;
-          btn.classList.add('correct');
-          if (explEl) {
-            explEl.style.display = 'block';
-            explEl.style.background = 'color-mix(in srgb, var(--cs-green) 12%, var(--cs-card-bg))';
-            explEl.style.border = '1px solid var(--cs-green)';
-            explEl.innerHTML = `<strong>✓ Correct!</strong> ${q.explanation}`;
-          }
-        } else {
-          btn.classList.add('wrong');
-          if (optionBtns[q.answer]) optionBtns[q.answer].classList.add('correct');
-          if (explEl) {
-            explEl.style.display = 'block';
-            explEl.style.background = 'color-mix(in srgb, var(--cs-danger) 10%, var(--cs-card-bg))';
-            explEl.style.border = '1px solid var(--cs-danger)';
-            explEl.innerHTML = `<strong>✕ Incorrect.</strong> ${q.explanation}`;
-          }
-        }
+          const chosenIdx = Number(btn.dataset.optIdx);
+          lastChosenIdx = chosenIdx;
 
-        if (nextBtn) nextBtn.disabled = false;
+          optionBtns.forEach(b => b.disabled = true);
+
+          if (chosenIdx === q.answer) {
+            quizScore++;
+            btn.classList.add('correct');
+            if (explEl) {
+              explEl.style.display = 'block';
+              explEl.style.background = 'color-mix(in srgb, var(--cs-green) 12%, var(--cs-card-bg))';
+              explEl.style.border = '1px solid var(--cs-green)';
+              explEl.innerHTML = `${ui.correctPrefix} ${qExpl}`;
+            }
+          } else {
+            btn.classList.add('wrong');
+            if (optionBtns[q.answer]) optionBtns[q.answer].classList.add('correct');
+            if (explEl) {
+              explEl.style.display = 'block';
+              explEl.style.background = 'color-mix(in srgb, var(--cs-danger) 10%, var(--cs-card-bg))';
+              explEl.style.border = '1px solid var(--cs-danger)';
+              explEl.innerHTML = `${ui.incorrectPrefix} ${qExpl}`;
+            }
+          }
+
+          if (nextBtn) nextBtn.disabled = false;
+        });
       });
-    });
+    }
 
     if (nextBtn) {
       nextBtn.addEventListener('click', () => {
         currentQuizIdx++;
         quizAnswered = false;
+        lastChosenIdx = null;
         renderQuizQuestion();
       });
     }
 
     if (listenBtn) {
       listenBtn.addEventListener('click', () => {
-        speakText(`${q.question}. Options: ${q.options.join(', ')}`);
+        voiceLang = lang === 'mr' ? 'mr-IN' : lang === 'hi' ? 'hi-IN' : 'en-IN';
+        speakText(`${qText}. ${qOpts.join(', ')}`);
       });
     }
   }

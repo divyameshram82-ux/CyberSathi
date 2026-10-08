@@ -1681,16 +1681,24 @@
 
         const simScenarioTag = mission.isSimulatedCallLabel ? `
           <div class="sim-call-disclaimer">
-            🚨 <strong>SIMULATED SCENARIO:</strong> Educational simulation only — NOT a real police or government call.
+            🚨 <strong>${lang === 'hi' ? 'सिम्युलेटेड स्थिति:' : lang === 'mr' ? 'सिम्युलेटेड प्रसंग:' : 'SIMULATED SCENARIO:'}</strong>
+            ${lang === 'hi' ? 'केवल शैक्षणिक सिम्युलेशन — यह कोई वास्तविक पुलिस या सरकारी कॉल नहीं है।' :
+              lang === 'mr' ? 'केवळ शैक्षणिक सिम्युलेशन — हा कोणताही खरा पोलीस किंवा सरकारी कॉल नाही.' :
+              'Educational simulation only — NOT a real police or government call.'}
           </div>
         ` : '';
 
+        const lblFrom = lang === 'hi' ? 'प्रेषक (From):' : lang === 'mr' ? 'प्रेषक (From):' : 'From:';
+        const lblSubject = lang === 'hi' ? 'विषय (Subject):' : lang === 'mr' ? 'विषय (Subject):' : 'Subject:';
+        const lblAttachment = lang === 'hi' ? 'संलग्न फ़ाइल (Attachment):' : lang === 'mr' ? 'संलग्न फाईल (Attachment):' : 'Attachment:';
+        const lblLink = lang === 'hi' ? 'संदिग्ध लिंक (Suspicious URL):' : lang === 'mr' ? 'संशयास्पद लिंक (Suspicious URL):' : 'Suspicious URL:';
+
         const emailMetaHtml = step.emailMeta ? `
           <div class="sim-email-meta">
-            <div><strong>From:</strong> <code>${esc(step.emailMeta.sender)}</code></div>
-            <div><strong>Subject:</strong> <span style="color:#dc2626; font-weight:700;">${esc(step.emailMeta.subject[lang] || step.emailMeta.subject.en)}</span></div>
-            <div><strong>Attachment:</strong> <span class="sim-fake-attachment">${esc(step.emailMeta.attachment)}</span></div>
-            <div><strong>Suspicious URL:</strong> <code>${esc(step.emailMeta.link)}</code></div>
+            <div><strong>${lblFrom}</strong> <code>${esc(step.emailMeta.sender)}</code></div>
+            <div><strong>${lblSubject}</strong> <span style="color:#dc2626; font-weight:700;">${esc(step.emailMeta.subject[lang] || step.emailMeta.subject.en)}</span></div>
+            <div><strong>${lblAttachment}</strong> <span class="sim-fake-attachment">${esc(step.emailMeta.attachment)}</span></div>
+            <div><strong>${lblLink}</strong> <code>${esc(step.emailMeta.link)}</code></div>
           </div>
         ` : '';
 
@@ -1736,6 +1744,11 @@
           `;
         }
 
+        const stepCounterLbl = lang === 'hi' ? `चरण ${activeStepIdx + 1}/${mission.steps.length}` : (lang === 'mr' ? `पायरी ${activeStepIdx + 1}/${mission.steps.length}` : `Step ${activeStepIdx + 1}/${mission.steps.length}`);
+        const unknownSenderLbl = lang === 'hi' ? 'अज्ञात प्रेषक' : (lang === 'mr' ? 'अज्ञात प्रेषक' : 'Unknown Sender');
+        const simMsgNotice = lang === 'hi' ? 'सिम्युलेटेड संदेश • वास्तविक डेटा प्रविष्ट न करें' : (lang === 'mr' ? 'सिम्युलेटेड संदेश • खरा डेटा टाकू नका' : 'SIMULATED MESSAGE • DO NOT ENTER REAL DATA');
+        const otpPrefix = lang === 'hi' ? 'OTP: <strong>123456 (केवल सिम्युलेशन)</strong>' : (lang === 'mr' ? 'OTP: <strong>123456 (फक्त सिम्युलेशन)</strong>' : 'OTP: <strong>123456 (SIMULATION ONLY)</strong>');
+
         stageBodyHtml = `
           ${adaptationHtml}
           ${simScenarioTag}
@@ -1745,19 +1758,19 @@
                 <div class="sim-phone-topbar">
                   <span class="sim-phone-dots"><span></span><span></span><span></span></span>
                   <span class="sim-phone-header-text">${esc(step.uiHeader[lang] || step.uiHeader.en)}</span>
-                  <span class="sim-step-counter">Step ${activeStepIdx + 1}/${mission.steps.length}</span>
+                  <span class="sim-step-counter">${stepCounterLbl}</span>
                 </div>
                 <div class="sim-phone-sender">
                   <span class="sim-avatar">${mission.icon}</span>
                   <div>
-                    <strong>${esc(step.sender || 'Unknown Sender')}</strong>
-                    <small>SIMULATED MESSAGE • DO NOT ENTER REAL DATA</small>
+                    <strong>${esc(step.sender || unknownSenderLbl)}</strong>
+                    <small>${simMsgNotice}</small>
                   </div>
                 </div>
                 ${emailMetaHtml}
                 <div class="sim-message-bubble">${esc(step.message[lang] || step.message.en).replace(/\n/g, '<br>')}</div>
                 <div class="sim-fake-input-guard">
-                  🔒 <span>OTP: <strong>123456 (SIMULATION ONLY)</strong> — ${esc(t.privacyWarning)}</span>
+                  🔒 <span>${otpPrefix} — ${esc(t.privacyWarning)}</span>
                 </div>
               </div>
             </div>
@@ -2124,8 +2137,13 @@
     }
 
     // Re-render automatically when site language changes
-    document.addEventListener('cybersathi-lang-change', () => {
+    const onLangChange = () => {
       render();
+    };
+    document.addEventListener('cybersathi-lang-change', onLangChange);
+    window.addEventListener('languageChanged', onLangChange);
+    document.querySelectorAll('#siteLangSelect, #language, .lang-select').forEach(sel => {
+      sel.addEventListener('change', onLangChange);
     });
 
     render();
@@ -2154,6 +2172,9 @@
       });
     });
   }
+
+  window.initAllSimulators = initAllSimulators;
+  window.mountScamSimulator = mountScamSimulator;
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initAllSimulators);

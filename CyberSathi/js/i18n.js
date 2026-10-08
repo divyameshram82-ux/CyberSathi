@@ -348,13 +348,49 @@ const T = {
   // Scam Simulator Entry Card & Hero Buttons
   '🕵️ SCAM SIMULATOR': ['🕵️ स्कैम सिम्युलेटर (SCAM SIMULATOR)', '🕵️ स्कॅम सिम्युलेटर (SCAM SIMULATOR)'],
   '🕵️ Scam Simulator': ['🕵️ स्कैम सिम्युलेटर', '🕵️ स्कॅम सिम्युलेटर'],
+  'Scam Simulator 🕵️': ['स्कैम सिम्युलेटर 🕵️', 'स्कॅम सिम्युलेटर 🕵️'],
   'Can You Outsmart a Scammer?': ['क्या आप साइबर ठग को मात दे सकते हैं?', 'तुम्ही सायबर भामट्याला हरवू शकता का?'],
   'Experience realistic scam situations, make your own decisions, and learn how attackers manipulate people.': [
     'असली जैसे दिखने वाले साइबर ठगी के हालातों का अनुभव करें, खुद निर्णय लें और सीखें कि ठग लोगों को कैसे फंसाते हैं।',
     'प्रत्यक्ष सायबर फसवणुकीच्या प्रसंगांचा अनुभव घ्या, स्वतःचे निर्णय घ्या आणि सायबर भामटे लोकांना कसे फसवतात ते शिका.'
   ],
   '🎯 Start Simulation': ['🎯 सिम्युलेशन शुरू करें', '🎯 सिम्युलेशन सुरू करा'],
-  '🛡️ Open in Full Tools Lab ↗': ['🛡️ पूरे टूल्स लैब में खोलें ↗', '🛡️ संपूर्ण टूल्स लॅबमध्ये उघडा ↗']
+  '🛡️ Open in Full Tools Lab ↗': ['🛡️ पूरे टूल्स लैब में खोलें ↗', '🛡️ संपूर्ण टूल्स लॅबमध्ये उघडा ↗'],
+  '📱 LIVE THREAT PREVIEW': ['📱 लाइव थ्रेट प्रिव्यू', '📱 थेट धोका पूर्वदृश्य'],
+  '8 INTERACTIVE MISSIONS': ['8 इंटरैक्टिव मिशन', '8 परस्परसंवादी मिशन्स'],
+  '📱 LIVE THREAT TRAINING': ['📱 लाइव थ्रेट ट्रेनिंग', '📱 थेट धोका प्रशिक्षण'],
+  '8 MISSIONS • EN / HI / MR': ['8 मिशन • EN / HI / MR', '8 मिशन्स • EN / HI / MR'],
+  '"Dear Customer, your bank account will be blocked today due to incomplete KYC. Click immediately: bit.ly/kyc-update-fast"': [
+    '"प्रिय ग्राहक, अपूर्ण KYC के कारण आपका बैंक खाता आज बंद कर दिया जाएगा। तुरंत क्लिक करें: bit.ly/kyc-update-fast"',
+    '"प्रिय ग्राहक, अपूर्ण KYC मुळे तुमचे बँक खाते आज बंद केले जाईल. त्वरित क्लिक करा: bit.ly/kyc-update-fast"'
+  ],
+  'Dear Customer, your bank account will be blocked today due to incomplete KYC. Click immediately: bit.ly/kyc-update-fast': [
+    'प्रिय ग्राहक, अपूर्ण KYC के कारण आपका बैंक खाता आज बंद कर दिया जाएगा। तुरंत क्लिक करें: bit.ly/kyc-update-fast',
+    'प्रिय ग्राहक, अपूर्ण KYC मुळे तुमचे बँक खाते आज बंद केले जाईल. त्वरित क्लिक करा: bit.ly/kyc-update-fast'
+  ],
+  '"Someone is actually trying to scam me. What would I do?"': [
+    '"कोई वास्तव में मुझे ठगने की कोशिश कर रहा है। मैं क्या करूँगा?"',
+    '"कोणीतरी खरोखर मला फसवण्याचा प्रयत्न करत आहे. मी काय करेन?"'
+  ],
+  'Someone is actually trying to scam me. What would I do?': [
+    'कोई वास्तव में मुझे ठगने की कोशिश कर रहा है। मैं क्या करूँगा?',
+    'कोणीतरी खरोखर मला फसवण्याचा प्रयत्न करत आहे. मी काय करेन?'
+  ],
+  '🛑 STOP': ['🛑 रुकें (STOP)', '🛑 थांबा (STOP)'],
+  '🔍 VERIFY': ['🔍 जांचें (VERIFY)', '🔍 खात्री करा (VERIFY)'],
+  '🛡️ ACT SAFELY': ['🛡️ सुरक्षित कदम (ACT SAFELY)', '🛡️ सुरक्षित कृती (ACT SAFELY)'],
+  'STOP': ['रुकें', 'थांबा'],
+  'VERIFY': ['जांचें', 'खात्री करा'],
+  'ACT SAFELY': ['सुरक्षित कदम', 'सुरक्षित कृती'],
+  'SIMULATED MESSAGE • DO NOT ENTER REAL DATA': [
+    'सिम्युलेटेड संदेश • वास्तविक डेटा दर्ज न करें',
+    'सिम्युलेटेड मेसेज • खरी माहिती टाकू नका'
+  ],
+  'SIMULATED SCENARIO:': ['सिम्युलेटेड स्थिति:', 'सिम्युलेटेड प्रसंग:'],
+  'Educational simulation only — NOT a real police or government call.': [
+    'केवल शैक्षणिक सिम्युलेशन — यह कोई वास्तविक पुलिस या सरकारी कॉल नहीं है।',
+    'केवळ शैक्षणिक सिम्युलेशन — हा कोणताही खरा पोलीस किंवा सरकारी कॉल नाही.'
+  ]
 };
 
 const normalizeKey = (s) => (s || '').replace(/\s+/g, ' ').trim();

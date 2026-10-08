@@ -1491,114 +1491,344 @@ const fraudStories = [
 
 const quizQuestions = [
   {
-    question: 'A caller claiming to be your bank manager asks for the 6-digit OTP sent to your phone to "verify your KYC". What should you do?',
-    options: [
-      'Read the OTP immediately so your account does not get blocked.',
-      'Refuse to share the OTP, hang up, and visit your local bank branch.',
-      'Ask the caller to call your friend instead.',
-      'Send the OTP via WhatsApp so you have proof.'
-    ],
+    id: 1,
+    question: {
+      en: 'A caller claiming to be your bank manager asks for the 6-digit OTP sent to your phone to "verify your KYC". What should you do?',
+      hi: 'एक कॉलर खुद को आपका बैंक मैनेजर बताकर "KYC सत्यापन" के लिए आपके फोन पर आए 6 अंकों के OTP की मांग करता है। आपको क्या करना चाहिए?',
+      mr: 'बँक मॅनेजर असल्याचे सांगून एक कॉलर "KYC पडताळणी"साठी तुमच्या फोनवर आलेला ६ अंकी OTP मागतो. तुम्ही काय कराल?'
+    },
+    options: {
+      en: [
+        'Read the OTP immediately so your account does not get blocked.',
+        'Refuse to share the OTP, hang up, and visit your local bank branch.',
+        'Ask the caller to call your friend instead.',
+        'Send the OTP via WhatsApp so you have proof.'
+      ],
+      hi: [
+        'तुरंत OTP बता देंगे ताकि खाता ब्लॉक न हो।',
+        'OTP साझा करने से मना करेंगे, कॉल काटेंगे और अपनी स्थानीय बैंक शाखा जाएंगे।',
+        'कॉलर से अपने दोस्त को फोन करने के लिए कहेंगे।',
+        'सबूत रखने के लिए WhatsApp पर OTP भेजेंगे।'
+      ],
+      mr: [
+        'खाते ब्लॉक होऊ नये म्हणून लगेच OTP सांगू.',
+        'OTP शेअर करण्यास नकार देऊ, फोन ठेवू आणि बँकेच्या स्थानिक शाखेत प्रत्यक्ष भेट देऊ.',
+        'कॉलरला मित्राला फोन करण्यास सांगू.',
+        'पुरावा राहण्यासाठी WhatsApp वर OTP पाठवू.'
+      ]
+    },
     answer: 1,
-    explanation: 'Banks and legitimate officials NEVER ask for OTPs or PINs. Sharing an OTP gives fraudsters direct access to withdraw your funds.'
+    explanation: {
+      en: 'Banks and legitimate officials NEVER ask for OTPs or PINs. Sharing an OTP gives fraudsters direct access to withdraw your funds.',
+      hi: 'बैंक और वैध अधिकारी कभी भी OTP या PIN नहीं मांगते। OTP साझा करने से जालसाजों को आपके खाते से पैसे निकालने की सीधी अनुमति मिल जाती है।',
+      mr: 'बँका आणि अधिकृत अधिकारी कधीही OTP किंवा PIN मागत नाहीत. OTP सांगितल्याने भामट्यांना तुमच्या खात्यातून पैसे काढण्याची थेट परवानगी मिळते.'
+    }
   },
   {
-    question: 'You want to receive ₹2,000 from a buyer on an online marketplace. They send a QR code and ask you to scan it and enter your UPI PIN. What will happen?',
-    options: [
-      'You will receive ₹2,000 into your bank account.',
-      'Money will be deducted from your bank account.',
-      'Nothing will happen until you reboot your phone.',
-      'You will receive a discount coupon.'
-    ],
+    id: 2,
+    question: {
+      en: 'You want to receive ₹2,000 from a buyer on an online marketplace. They send a QR code and ask you to scan it and enter your UPI PIN. What will happen?',
+      hi: 'आप ऑनलाइन मार्केटप्लेस पर खरीदार से ₹2,000 प्राप्त करना चाहते हैं। वह एक QR कोड भेजता है और उसे स्कैन करके UPI PIN दर्ज करने को कहता है। क्या होगा?',
+      mr: 'तुम्हाला ऑनलाइन खरेदी-विक्री प्लॅटफॉर्मवर ग्राहकाकडून ₹2,000 घ्यायचे आहेत. तो एक QR कोड पाठवतो आणि तो स्कॅन करून UPI PIN टाकण्यास सांगतो. काय होईल?'
+    },
+    options: {
+      en: [
+        'You will receive ₹2,000 into your bank account.',
+        'Money will be deducted from your bank account.',
+        'Nothing will happen until you reboot your phone.',
+        'You will receive a discount coupon.'
+      ],
+      hi: [
+        'आपके बैंक खाते में ₹2,000 जमा हो जाएंगे।',
+        'आपके बैंक खाते से पैसे कट जाएंगे।',
+        'जब तक आप फोन रीस्टार्ट नहीं करेंगे तब तक कुछ नहीं होगा।',
+        'आपको एक डिस्काउंट कूपन मिलेगा।'
+      ],
+      mr: [
+        'तुमच्या बँक खात्यात ₹2,000 जमा होतील.',
+        'तुमच्या बँक खात्यातून पैसे वजा (कट) होतील.',
+        'फोन रीस्टार्ट करेपर्यंत काहीही होणार नाही.',
+        'तुम्हाला डिस्काउंट कूपन मिळेल.'
+      ]
+    },
     answer: 1,
-    explanation: 'Entering your UPI PIN authorizes a withdrawal (sending money). You NEVER enter your UPI PIN to receive money.'
+    explanation: {
+      en: 'Entering your UPI PIN authorizes a withdrawal (sending money). You NEVER enter your UPI PIN to receive money.',
+      hi: 'UPI PIN दर्ज करने से पैसे कटते हैं (पैसे भेजे जाते हैं)। पैसे प्राप्त (Receive) करने के लिए कभी भी UPI PIN दर्ज नहीं किया जाता।',
+      mr: 'UPI PIN टाकल्याने खात्यातून पैसे पाठवले जातात (कट होतात). पैसे मिळवण्यासाठी कधीही UPI PIN टाकण्याची गरज नसते.'
+    }
   },
   {
-    question: 'You receive a video call on Skype from a person in a police uniform claiming you are under "Digital Arrest". What is the reality?',
-    options: [
-      'Digital Arrest is a standard police procedure under Indian Law.',
-      'There is no such legal concept as "Digital Arrest" in India; it is 100% a scam.',
-      'You must immediately wire money to the officer to get bail.',
-      'You must stay locked in your room until they call back.'
-    ],
+    id: 3,
+    question: {
+      en: 'You receive a video call on Skype from a person in a police uniform claiming you are under "Digital Arrest". What is the reality?',
+      hi: 'आपको Skype पर पुलिस की वर्दी पहने व्यक्ति का वीडियो कॉल आता है जो दावा करता है कि आप "डिजिटल अरेस्ट" (Digital Arrest) के तहत हैं। सच्चाई क्या है?',
+      mr: 'तुम्हाला Skype वर पोलिसांच्या गणवेशातील व्यक्तीचा व्हिडिओ कॉल येतो आणि ती सांगते की तुम्ही "डिजिटल अरेस्ट" (Digital Arrest) अंतर्गत आहात. सत्य काय आहे?'
+    },
+    options: {
+      en: [
+        'Digital Arrest is a standard police procedure under Indian Law.',
+        'There is no such legal concept as "Digital Arrest" in India; it is 100% a scam.',
+        'You must immediately wire money to the officer to get bail.',
+        'You must stay locked in your room until they call back.'
+      ],
+      hi: [
+        'डिजिटल अरेस्ट भारतीय कानून के तहत एक सामान्य पुलिस प्रक्रिया है।',
+        'भारत में "डिजिटल अरेस्ट" जैसा कोई कानूनी प्रावधान नहीं है; यह 100% धोखाधड़ी (Scam) है।',
+        'जमानत पाने के लिए आपको तुरंत अधिकारी को पैसे भेजने होंगे।',
+        'जब तक वे दोबारा कॉल न करें तब तक आपको कमरे में बंद रहना होगा।'
+      ],
+      mr: [
+        'डिजिटल अरेस्ट ही भारतीय कायद्यानुसार पोलिसांची सामान्य प्रक्रिया आहे.',
+        'भारतात "डिजिटल अरेस्ट" अशी कोणतीही कायदेशीर संकल्पना नाही; हा १००% स्कॅम (फसवणूक) आहे.',
+        'जामीन मिळवण्यासाठी त्वरित त्या अधिकाऱ्याला पैसे पाठवले पाहिजेत.',
+        'त्यांचा पुन्हा फोन येईपर्यंत खोलीतच बंद राहिले पाहिजे.'
+      ]
+    },
     answer: 1,
-    explanation: 'Law enforcement agencies and courts NEVER conduct trials, arrests or monetary settlements over video calls.'
+    explanation: {
+      en: 'Law enforcement agencies and courts NEVER conduct trials, arrests or monetary settlements over video calls.',
+      hi: 'कानून प्रवर्तन एजेंसियां और अदालतें कभी भी वीडियो कॉल पर पूछताछ, गिरफ्तारी या पैसों का लेनदेन नहीं करती हैं।',
+      mr: 'पोलीस तपास यंत्रणा आणि न्यायालये कधीही व्हिडिओ कॉलवर अटक, तपास किंवा पैशांची मागणी करत नाहीत.'
+    }
   },
   {
-    question: 'Which of the following website URLs is an authentic Indian government portal?',
-    options: [
-      'https://www.pm-kisan-yojna.online',
-      'https://www.myscheme.gov.in',
-      'http://cybercrime-police-portal.com',
-      'https://sbi-aadhaar-kyc.net'
-    ],
+    id: 4,
+    question: {
+      en: 'Which of the following website URLs is an authentic Indian government portal?',
+      hi: 'निम्नलिखित में से कौन सा वेबसाइट URL एक प्रामाणिक भारतीय सरकारी पोर्टल है?',
+      mr: 'खालीलपैकी कोणता वेबसाइट URL अधिकृत भारतीय शासकीय पोर्टल आहे?'
+    },
+    options: {
+      en: [
+        'https://www.pm-kisan-yojna.online',
+        'https://www.myscheme.gov.in',
+        'http://cybercrime-police-portal.com',
+        'https://sbi-aadhaar-kyc.net'
+      ],
+      hi: [
+        'https://www.pm-kisan-yojna.online',
+        'https://www.myscheme.gov.in',
+        'http://cybercrime-police-portal.com',
+        'https://sbi-aadhaar-kyc.net'
+      ],
+      mr: [
+        'https://www.pm-kisan-yojna.online',
+        'https://www.myscheme.gov.in',
+        'http://cybercrime-police-portal.com',
+        'https://sbi-aadhaar-kyc.net'
+      ]
+    },
     answer: 1,
-    explanation: 'Official central and state government portals strictly end in ".gov.in" or ".nic.in". Unofficial domains are common phishing traps.'
+    explanation: {
+      en: 'Official central and state government portals strictly end in ".gov.in" or ".nic.in". Unofficial domains are common phishing traps.',
+      hi: 'केंद्र और राज्य सरकार के आधिकारिक पोर्टल हमेशा ".gov.in" या ".nic.in" पर समाप्त होते हैं। गैर-सरकारी डोमेन फ़िशिंग जाल होते हैं।',
+      mr: 'केंद्र व राज्य शासनाची अधिकृत संकेतस्थळे केवळ ".gov.in" किंवा ".nic.in" ने संपतात. इतर खाजगी डोमेन फिशिंगचे सापळे असतात.'
+    }
   },
   {
-    question: 'What is the national emergency cyber fraud reporting helpline number in India?',
-    options: [
-      '100',
-      '1930',
-      '1091',
-      '1800-00-1111'
-    ],
+    id: 5,
+    question: {
+      en: 'What is the national emergency cyber fraud reporting helpline number in India?',
+      hi: 'भारत में राष्ट्रीय आपातकालीन साइबर वित्तीय धोखाधड़ी रिपोर्टिंग हेल्पलाइन नंबर क्या है?',
+      mr: 'भारतात आर्थिक सायबर फसवणुकीची तक्रार नोंदवण्यासाठी राष्ट्रीय आपत्कालीन हेल्पलाइन क्रमांक कोणता आहे?'
+    },
+    options: {
+      en: [
+        '100',
+        '1930',
+        '1091',
+        '1800-00-1111'
+      ],
+      hi: [
+        '100',
+        '1930',
+        '1091',
+        '1800-00-1111'
+      ],
+      mr: [
+        '100',
+        '1930',
+        '1091',
+        '1800-00-1111'
+      ]
+    },
     answer: 1,
-    explanation: 'Helpline 1930 is the national citizen financial cyber fraud reporting helpline managed under the Ministry of Home Affairs (I4C).'
+    explanation: {
+      en: 'Helpline 1930 is the national citizen financial cyber fraud reporting helpline managed under the Ministry of Home Affairs (I4C).',
+      hi: 'हेल्पलाइन 1930 गृह मंत्रालय (I4C) के तहत संचालित राष्ट्रीय नागरिक वित्तीय साइबर अपराध रिपोर्टिंग हेल्पलाइन है।',
+      mr: '१९३० ही गृह मंत्रालय (I4C) अंतर्गत चालवली जाणारी राष्ट्रीय नागरिक आर्थिक सायबर गुन्हे रिपोर्टिंग हेल्पलाइन आहे.'
+    }
   },
   {
-    question: 'A friend’s WhatsApp profile messages you asking for ₹10,000 emergency hospital fees from a new number. What is your first action?',
-    options: [
-      'Transfer ₹10,000 immediately to the UPI ID provided in the chat.',
-      'Call your friend on their original, known phone number to verify directly.',
-      'Forward the message to 10 other relatives to ask for donations.',
-      'Ignore the message forever without checking on your friend.'
-    ],
+    id: 6,
+    question: {
+      en: 'A friend’s WhatsApp profile messages you asking for ₹10,000 emergency hospital fees from a new number. What is your first action?',
+      hi: 'किसी नए नंबर से आपके दोस्त की WhatsApp DP लगी प्रोफाइल से अस्पताल के लिए ₹10,000 आपातकालीन पैसे मांगे जाते हैं। आपका पहला कदम क्या होगा?',
+      mr: 'एका नवीन नंबरवरून मित्राचा व्हॉट्सअ‍ॅप फोटो वापरून रुग्णालयाच्या खर्चासाठी ₹10,000 तातडीने मागितले जातात. तुमची पहिली कृती काय असेल?'
+    },
+    options: {
+      en: [
+        'Transfer ₹10,000 immediately to the UPI ID provided in the chat.',
+        'Call your friend on their original, known phone number to verify directly.',
+        'Forward the message to 10 other relatives to ask for donations.',
+        'Ignore the message forever without checking on your friend.'
+      ],
+      hi: [
+        'चैट में दी गई UPI ID पर तुरंत ₹10,000 ट्रांसफर कर देंगे।',
+        'सच्चाई जानने के लिए अपने दोस्त के पुराने, पहले से मौजूद फोन नंबर पर सीधे कॉल करेंगे।',
+        'मदद मांगने के लिए मैसेज अन्य 10 रिश्तेदारों को फॉरवर्ड करेंगे।',
+        'दोस्त का हाल जाने बिना मैसेज को हमेशा के लिए अनदेखा कर देंगे।'
+      ],
+      mr: [
+        'चॅटमध्ये दिलेल्या UPI ID वर लगेच ₹10,000 पाठवून देऊ.',
+        'खात्री करण्यासाठी मित्राच्या मूळ, आधीपासून सेव्ह असलेल्या फोन नंबरवर थेट फोन करू.',
+        'मदतीसाठी तो मेसेज इतर १० नातेवाईकांना फॉरवर्ड करू.',
+        'मित्राची विचारपूस न करता मेसेज दुर्लक्षित करू.'
+      ]
+    },
     answer: 1,
-    explanation: 'Fraudsters frequently copy profile pictures and impersonate loved ones. Always verify emergencies with a direct phone call.'
+    explanation: {
+      en: 'Fraudsters frequently copy profile pictures and impersonate loved ones. Always verify emergencies with a direct phone call.',
+      hi: 'जालसाज अक्सर प्रोफाइल फोटो चुराकर परिजनों या दोस्तों का रूप धरते हैं। आपात स्थिति में हमेशा सीधे फोन कॉल से पुष्टि करें।',
+      mr: 'भामटे प्रोफाइल फोटो चोरून नातेवाईक किंवा मित्रांची खोटी ओळख वापरतात. नेहमी थेट फोन कॉल करून खात्री करा.'
+    }
   },
   {
-    question: 'What should you do before giving a physical photocopy of your Aadhaar card to a hotel or shop?',
-    options: [
-      'Sign your full bank account number on the copy.',
-      'Cross the photocopy and write the specific purpose (e.g., "For Hotel Check-in Only").',
-      'Laminate the copy so it cannot be read.',
-      'Hand over the original Aadhaar card permanently.'
-    ],
+    id: 7,
+    question: {
+      en: 'What should you do before giving a physical photocopy of your Aadhaar card to a hotel or shop?',
+      hi: 'किसी होटल या दुकान को अपने आधार कार्ड की फोटोकॉपी देने से पहले आपको क्या करना चाहिए?',
+      mr: 'हॉटेल किंवा दुकानात आधार कार्डची झेरॉक्स देण्यापूर्वी तुम्ही काय केले पाहिजे?'
+    },
+    options: {
+      en: [
+        'Sign your full bank account number on the copy.',
+        'Cross the photocopy and write the specific purpose (e.g., "For Hotel Check-in Only").',
+        'Laminate the copy so it cannot be read.',
+        'Hand over the original Aadhaar card permanently.'
+      ],
+      hi: [
+        'कॉपी पर अपना पूरा बैंक खाता नंबर लिख देंगे।',
+        'फोटोकॉपी पर क्रॉस लाइन खींचकर विशेष उद्देश्य लिखेंगे (उदा. "केवल होटल चेक-इन हेतु")।',
+        'कॉपी को लैमिनेट कर देंगे ताकि उसे पढ़ा न जा सके।',
+        'मूल आधार कार्ड स्थायी रूप से सौंप देंगे।'
+      ],
+      mr: [
+        'झेरॉक्सवर स्वतःचा संपूर्ण बँक खाते क्रमांक लिहू.',
+        'झेरॉक्सवर तिरकी रेष ओढून वापराचे कारण लिहू (उदा. "फक्त हॉटेल चेक-इनसाठी").',
+        'झेरॉक्स लॅमिनेट करू जेणेकरून वाचता येणार नाही.',
+        'मूळ आधार कार्ड कायमचे देऊन टाकू.'
+      ]
+    },
     answer: 1,
-    explanation: 'Crossing the photocopy with the date and intended purpose prevents unauthorized reuse for fake SIM cards or fraudulent loans.'
+    explanation: {
+      en: 'Crossing the photocopy with the date and intended purpose prevents unauthorized reuse for fake SIM cards or fraudulent loans.',
+      hi: 'फोटोकॉपी पर तारीख और विशिष्ट उद्देश्य लिखने (मास्क/क्रॉस करने) से उसका फर्जी सिम कार्ड या लोन के लिए दुरुपयोग रुकता है।',
+      mr: 'आधार झेरॉक्सवर तारीख व वापराचे कारण नमूद केल्याने बनावट सिम कार्ड किंवा कर्जासाठी होणारा गैरवापर टळतो.'
+    }
   },
   {
-    question: 'A job recruiter on Telegram asks for a ₹1,500 "registration fee" to send you a work-from-home assignment. What does this indicate?',
-    options: [
-      'It is a standard corporate hiring requirement.',
-      'It is a fake job scam; legitimate employers never demand payment to hire you.',
-      'It means your salary will be doubled.',
-      'You will be assigned a government laptop.'
-    ],
+    id: 8,
+    question: {
+      en: 'A job recruiter on Telegram asks for a ₹1,500 "registration fee" to send you a work-from-home assignment. What does this indicate?',
+      hi: 'Telegram पर नौकरी देने वाला व्यक्ति वर्क-फ्रॉम-होम काम भेजने के लिए ₹1,500 "पंजीकरण शुल्क" मांगता है। यह क्या दर्शाता है?',
+      mr: 'Telegram वर नोकरी देणारा वर्क-फ्रॉम-होम काम देण्यासाठी ₹1,500 "नोंदणी शुल्क" मागतो. हे काय दर्शवते?'
+    },
+    options: {
+      en: [
+        'It is a standard corporate hiring requirement.',
+        'It is a fake job scam; legitimate employers never demand payment to hire you.',
+        'It means your salary will be doubled.',
+        'You will be assigned a government laptop.'
+      ],
+      hi: [
+        'यह कंपनियों की भर्ती की सामान्य प्रक्रिया है।',
+        'यह एक फर्जी नौकरी घोटाला है; वैध नियोक्ता नौकरी देने के लिए कभी पैसे नहीं मांगते।',
+        'इसका मतलब है कि आपका वेतन दोगुना हो जाएगा।',
+        'आपको सरकारी लैपटॉप दिया जाएगा।'
+      ],
+      mr: [
+        'हा कॉर्पोरेट भरतीचा सर्वसाधारण नियम आहे.',
+        'हा बनावट नोकरीचा स्कॅम आहे; कायदेशीर कंपन्या नोकरी देण्यासाठी कधीही पैसे मागत नाहीत.',
+        'याचा अर्थ तुमचा पगार दुप्पट होईल.',
+        'तुम्हाला सरकारी लॅपटॉप दिला जाईल.'
+      ]
+    },
     answer: 1,
-    explanation: 'Real companies never ask candidates to pay registration fees, training deposits, or task unlock charges.'
+    explanation: {
+      en: 'Real companies never ask candidates to pay registration fees, training deposits, or task unlock charges.',
+      hi: 'असली कंपनियां नौकरी देने के लिए कभी भी रजिस्ट्रेशन फीस, ट्रेनिंग डिपॉजिट या टास्क अनलॉक चार्ज नहीं मांगती हैं।',
+      mr: 'खऱ्या कंपन्या उमेदवारांकडून नोंदणी शुल्क, प्रशिक्षण ठेव किंवा टास्क अनलॉक करण्यासाठी कधीही पैसे मागत नाहीत.'
+    }
   },
   {
-    question: 'What is the "Golden Hour" in financial cyber fraud?',
-    options: [
-      'The best time of day to invest in stock markets.',
-      'The first 1 to 2 hours after being defrauded, when reporting to 1930 has the highest chance of freezing the stolen money.',
-      'The time between 12:00 PM and 1:00 PM when banks are closed.',
-      'The delay required before filing a police complaint.'
-    ],
+    id: 9,
+    question: {
+      en: 'What is the "Golden Hour" in financial cyber fraud?',
+      hi: 'वित्तीय साइबर धोखाधड़ी में "गोल्डन ऑवर" (Golden Hour) क्या होता है?',
+      mr: 'आर्थिक सायबर गुन्ह्यांमध्ये "गोल्डन अवर" (Golden Hour) म्हणजे काय?'
+    },
+    options: {
+      en: [
+        'The best time of day to invest in stock markets.',
+        'The first 1 to 2 hours after being defrauded, when reporting to 1930 has the highest chance of freezing the stolen money.',
+        'The time between 12:00 PM and 1:00 PM when banks are closed.',
+        'The delay required before filing a police complaint.'
+      ],
+      hi: [
+        'शेयर बाजार में निवेश करने का दिन का सबसे अच्छा समय।',
+        'ठगी के बाद के पहले 1 से 2 घंटे, जब 1930 पर रिपोर्ट करने से चुराए गए पैसे फ्रीज होने की संभावना सबसे अधिक होती है।',
+        'दोपहर 12:00 से 1:00 बजे का समय जब बैंक बंद रहते हैं।',
+        'पुलिस शिकायत दर्ज करने से पहले की जाने वाली देरी।'
+      ],
+      mr: [
+        'शेअर बाजारात गुंतवणूक करण्यासाठी दिवसाची सर्वात उत्तम वेळ.',
+        'फसवणूक झाल्यानंतरचे पहिले १ ते २ तास, ज्या काळात १९३० वर तक्रार केल्यास चोरीची रक्कम गोठवण्याची शक्यता सर्वाधिक असते.',
+        'दुपारी १२ ते १ ची वेळ जेव्हा बँका बंद असतात.',
+        'पोलीस तक्रार दाखल करण्यापूर्वीचा विलंब.'
+      ]
+    },
     answer: 1,
-    explanation: 'Reporting to helpline 1930 within the Golden Hour allows banks to rapidly track and freeze fraudulent transfers before scammers cash out.'
+    explanation: {
+      en: 'Reporting to helpline 1930 within the Golden Hour allows banks to rapidly track and freeze fraudulent transfers before scammers cash out.',
+      hi: 'गोल्डन ऑवर के दौरान हेल्पलाइन 1930 पर शिकायत करने से ठगों द्वारा पैसे निकालने से पहले बैंक खातों को तुरंत फ्रीज किया जा सकता है।',
+      mr: 'गोल्डन अवरमध्ये १९३० हेल्पलाइनवर तक्रार केल्याने भामट्यांनी पैसे काढण्यापूर्वी बँका ते पैसे तात्काळ गोठवू शकतात.'
+    }
   },
   {
-    question: 'An unknown app on WhatsApp asks for full access to your Phone Contacts, Photos, and SMS to give you a ₹5,000 instant loan. Should you allow it?',
-    options: [
-      'Yes, permissions are harmless.',
-      'No, illegal loan apps use your contacts and photos to harass and blackmail you.',
-      'Yes, if the interest rate is claimed to be zero.',
-      'Yes, but delete the app after 10 minutes.'
-    ],
+    id: 10,
+    question: {
+      en: 'An unknown app on WhatsApp asks for full access to your Phone Contacts, Photos, and SMS to give you a ₹5,000 instant loan. Should you allow it?',
+      hi: 'WhatsApp पर एक अनजान ऐप ₹5,000 का तुरंत लोन देने के लिए आपके फोन कॉन्टैक्ट्स, फोटो और SMS की अनुमति मांगता है। क्या आपको अनुमति देनी चाहिए?',
+      mr: 'WhatsApp वर एक अनोळखी ॲप ₹5,000 चे तात्काळ कर्ज देण्यासाठी तुमचे फोन कॉन्टॅक्ट्स, फोटो आणि SMS ची परवानगी मागते. तुम्ही परवानगी द्याल का?'
+    },
+    options: {
+      en: [
+        'Yes, permissions are harmless.',
+        'No, illegal loan apps use your contacts and photos to harass and blackmail you.',
+        'Yes, if the interest rate is claimed to be zero.',
+        'Yes, but delete the app after 10 minutes.'
+      ],
+      hi: [
+        'हां, अनुमतियां हानिरहित होती हैं।',
+        'नहीं, अवैध लोन ऐप आपके संपर्कों और तस्वीरों का इस्तेमाल ब्लैकमेल और प्रताड़ित करने के लिए करते हैं।',
+        'हां, अगर ब्याज दर शून्य बताई गई हो।',
+        'हां, लेकिन 10 मिनट बाद ऐप डिलीट कर दें।'
+      ],
+      mr: [
+        'होय, परवानग्या निरुपद्रवी असतात.',
+        'नाही, बेकायदेशीर लोन ॲप्स तुमच्या संपर्कांचा आणि फोटोंचा वापर ब्लॅकमेल व त्रास देण्यासाठी करतात.',
+        'होय, जर व्याजदर शून्य सांगितला असेल तर.',
+        'होय, पण १० मिनिटांनंतर ॲप डिलीट करू.'
+      ]
+    },
     answer: 1,
-    explanation: 'Predatory loan apps harvest your photo gallery and contact list to threaten your friends and family with morphed photos.'
+    explanation: {
+      en: 'Predatory loan apps harvest your photo gallery and contact list to threaten your friends and family with morphed photos.',
+      hi: 'अवैध लोन ऐप आपकी फोटो गैलरी और संपर्कों को चुराकर मॉर्फ की गई तस्वीरों से आपके दोस्तों व परिवार को ब्लैकमेल करते हैं।',
+      mr: 'अवैध कर्ज ॲप्स तुमचे फोटो आणि कॉन्टॅक्ट्स चोरून मॉर्फ केलेल्या फोटोंद्वारे मित्र व नातेवाईकांना ब्लॅकमेल करतात.'
+    }
   }
 ];
 
