@@ -1885,34 +1885,74 @@ const glossaryTerms = [
 
 const governmentSchemes = [
   {
-    title: 'National Cyber Crime Reporting Portal',
+    title: {
+      en: 'National Cyber Crime Reporting Portal',
+      hi: 'राष्ट्रीय साइबर अपराध रिपोर्टिंग पोर्टल (National Cyber Crime Portal)',
+      mr: 'राष्ट्रीय सायबर गुन्हे रिपोर्टिंग पोर्टल (National Cyber Crime Portal)'
+    },
     portal: 'cybercrime.gov.in',
     url: 'https://cybercrime.gov.in',
-    desc: 'Official Government of India portal under MHA (I4C) for registering complaints regarding all types of financial and cyber crimes.'
+    desc: {
+      en: 'Official Government of India portal under MHA (I4C) for registering complaints regarding all types of financial and cyber crimes.',
+      hi: 'गृह मंत्रालय (MHA/I4C) के तहत भारत सरकार का आधिकारिक पोर्टल, जहाँ सभी प्रकार के वित्तीय और साइबर अपराधों की शिकायत दर्ज की जाती है।',
+      mr: 'गृह मंत्रालय (MHA/I4C) अंतर्गत भारत सरकारचे अधिकृत पोर्टल, जिथे सर्व प्रकारच्या आर्थिक आणि सायबर गुन्ह्यांची तक्रार नोंदवता येते.'
+    }
   },
   {
-    title: 'myScheme Official Portal',
+    title: {
+      en: 'myScheme Official Portal',
+      hi: 'myScheme आधिकारिक पोर्टल',
+      mr: 'myScheme अधिकृत पोर्टल'
+    },
     portal: 'myscheme.gov.in',
     url: 'https://www.myscheme.gov.in',
-    desc: 'Official platform to discover verified central and state government schemes, subsidies, and citizen benefits.'
+    desc: {
+      en: 'Official platform to discover verified central and state government schemes, subsidies, and citizen benefits.',
+      hi: 'केंद्र और राज्य सरकार की सभी सत्यापित योजनाओं, सब्सिडी और नागरिक लाभों को खोजने का आधिकारिक मंच।',
+      mr: 'केंद्र आणि राज्य शासनाच्या सर्व अधिकृत योजना, अनुदाने आणि नागरिक लाभांची माहिती देणारे अधिकृत व्यासपीठ.'
+    }
   },
   {
-    title: 'Sanchar Saathi (DoT)',
+    title: {
+      en: 'Sanchar Saathi (DoT)',
+      hi: 'संचार साथी (दूरसंचार विभाग - DoT)',
+      mr: 'संचार साथी (दूरसंचार विभाग - DoT)'
+    },
     portal: 'sancharsaathi.gov.in',
     url: 'https://sancharsaathi.gov.in',
-    desc: 'Department of Telecommunications portal to block lost/stolen mobile phones (CEIR) and check mobile connections in your name (TAFCOP).'
+    desc: {
+      en: 'Department of Telecommunications portal to block lost/stolen mobile phones (CEIR) and check mobile connections in your name (TAFCOP).',
+      hi: 'दूरसंचार विभाग का आधिकारिक पोर्टल—खोए या चोरी हुए मोबाइल को ब्लॉक करने (CEIR) और अपने नाम पर चल रहे फर्जी सिम कनेक्शन जांचने (TAFCOP) के लिए।',
+      mr: 'दूरसंचार विभागाचे अधिकृत पोर्टल—हरवलेला/चोरी झालेला मोबाईल ब्लॉक करण्यासाठी (CEIR) आणि आपल्या नावावर असलेले सिम कनेक्शन तपासण्यासाठी (TAFCOP).'
+    }
   },
   {
-    title: 'Chakshu Suspected Fraud Reporting',
+    title: {
+      en: 'Chakshu Suspected Fraud Reporting',
+      hi: 'चक्षु (Chakshu) संदिग्ध धोखाधड़ी रिपोर्टिंग',
+      mr: 'चक्षू (Chakshu) संशयास्पद फसवणूक नोंदणी'
+    },
     portal: 'sancharsaathi.gov.in/sfc',
     url: 'https://sancharsaathi.gov.in',
-    desc: 'Official facility to report suspicious fraud communication received via calls, SMS, or WhatsApp before losing money.'
+    desc: {
+      en: 'Official facility to report suspicious fraud communication received via calls, SMS, or WhatsApp before losing money.',
+      hi: 'पैसे गंवाने से पहले ही कॉल, एसएमएस या व्हाट्सएप पर आए संदिग्ध धोखाधड़ी संदेशों की रिपोर्ट करने की आधिकारिक सरकारी सुविधा।',
+      mr: 'पैसे जाण्यापूर्वीच फोन कॉल, एसएमएस किंवा व्हॉट्सअ‍ॅपवर आलेल्या संशयास्पद फसव्या संभाषणांची तक्रार करण्याची अधिकृत शासकीय सुविधा.'
+    }
   },
   {
-    title: 'RBI Kehta Hai – Financial Awareness',
+    title: {
+      en: 'RBI Kehta Hai – Financial Awareness',
+      hi: 'RBI कहता है – वित्तीय जागरूकता',
+      mr: 'RBI म्हणते – आर्थिक साक्षरता'
+    },
     portal: 'rbikehtahai.rbi.org.in',
     url: 'https://rbikehtahai.rbi.org.in',
-    desc: 'Official Reserve Bank of India consumer awareness initiative promoting safe banking and electronic transactions.'
+    desc: {
+      en: 'Official Reserve Bank of India consumer awareness initiative promoting safe banking and electronic transactions.',
+      hi: 'भारतीय रिज़र्व बैंक (RBI) की आधिकारिक उपभोक्ता जागरूकता पहल, जो सुरक्षित डिजिटल बैंकिंग और ऑनलाइन लेनदेन को बढ़ावा देती है।',
+      mr: 'रिझर्व्ह बँक ऑफ इंडियाचा (RBI) अधिकृत ग्राहक जनजागृती उपक्रम, जो सुरक्षित डिजिटल बँकिंग आणि आर्थिक व्यवहारांना प्रोत्साहन देतो.'
+    }
   }
 ];
 

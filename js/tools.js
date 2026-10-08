@@ -884,26 +884,21 @@
     renderSchemes();
     initI4CMap();
 
-    // Universal language change listeners to keep quiz in sync
-    document.addEventListener('cybersathi-lang-change', () => {
+    // Universal language change listeners to keep quiz and schemes in sync
+    const onLangChanged = () => {
       if (document.getElementById('quizApp')) {
         renderQuizQuestion();
       }
-    });
-
-    window.addEventListener('languageChanged', () => {
-      if (document.getElementById('quizApp')) {
-        renderQuizQuestion();
+      if (document.getElementById('schemesGrid')) {
+        renderSchemes();
       }
-    });
+    };
+    document.addEventListener('cybersathi-lang-change', onLangChanged);
+    window.addEventListener('languageChanged', onLangChanged);
 
     document.querySelectorAll('#siteLangSelect, #language, .lang-select').forEach(sel => {
       sel.addEventListener('change', () => {
-        setTimeout(() => {
-          if (document.getElementById('quizApp')) {
-            renderQuizQuestion();
-          }
-        }, 50);
+        setTimeout(onLangChanged, 50);
       });
     });
   }
@@ -1889,6 +1884,9 @@
       if (document.getElementById('quizApp')) {
         renderQuizQuestion();
       }
+      if (document.getElementById('schemesGrid')) {
+        renderSchemes();
+      }
     };
     document.addEventListener('cybersathi-lang-change', onLang);
     window.addEventListener('languageChanged', onLang);
@@ -2070,24 +2068,32 @@
   function renderSchemes() {
     const container = document.getElementById('schemesGrid');
     if (!container) return;
+    attachQuizLangListeners();
 
-    container.innerHTML = getGovernmentSchemes().map(s => `
+    const lang = getLang();
+    const btnLabel = lang === 'hi' ? 'आधिकारिक पोर्टल ↗' : (lang === 'mr' ? 'अधिकृत पोर्टल ↗' : 'Official Portal ↗');
+
+    container.innerHTML = getGovernmentSchemes().map(s => {
+      const title = getLocalizedText(s.title, lang);
+      const desc = getLocalizedText(s.desc, lang);
+      return `
       <article class="card" style="display: flex; flex-direction: column;">
         <span style="font-size: 32px; margin-bottom: 12px;">🏛️</span>
         <h3 style="font-family: 'Outfit', sans-serif; font-size: 18px; color: var(--cs-deep); margin-bottom: 6px;">
-          ${s.title}
+          ${title}
         </h3>
         <p style="font-size: 13.5px; color: var(--cs-muted); line-height: 1.5; margin-bottom: 18px; flex: 1;">
-          ${s.desc}
+          ${desc}
         </p>
         <div style="display: flex; justify-content: space-between; align-items: center;">
           <span style="font-size: 12px; font-weight: 700; color: var(--cs-green);">${s.portal}</span>
           <a href="${s.url}" target="_blank" rel="noopener" class="btn btn-outline" style="padding: 6px 14px; font-size: 12px;">
-            Official Portal ↗
+            ${btnLabel}
           </a>
         </div>
       </article>
-    `).join('');
+      `;
+    }).join('');
   }
 
   // ==========================================
@@ -2155,5 +2161,6 @@
   window.initToolsPage = initToolsPage;
   window.initVoiceSaathi = initVoiceSaathi;
   window.initQuiz = initQuiz;
+  window.renderSchemes = renderSchemes;
   window.initI4CMap = initI4CMap;
 })();

@@ -289,6 +289,36 @@ const T = {
   'Block Apps & Change PINs': ['ऐप्स ब्लॉक करें और पिन बदलें', 'ॲप्स ब्लॉक करा व PIN बदला'],
   'Preserve All Evidence': ['सभी सबूत सुरक्षित रखें', 'सर्व पुरावे जपून ठेवा'],
   'File National Police Complaint': ['राष्ट्रीय पुलिस शिकायत दर्ज करें', 'अधिकृत सायबर तक्रार नोंदवा'],
+  'Hang up immediately on the scammer. Do not transfer more money to "unlock" previous funds. Take a deep breath.': [
+    'ठग का फोन तुरंत काट दें। पिछले पैसे "अनलॉक" कराने के नाम पर और पैसे कभी न भेजें। घबराएं नहीं, शांत रहें।',
+    'सायबर भामट्याचा फोन तात्काळ बंद करा. जुने पैसे "अनलॉक" करण्याच्या नावाखाली आणखी पैसे पाठवू नका. शांत राहा.'
+  ],
+  'Call your bank’s 24/7 emergency toll-free number from your passbook/ATM card to block your card and freeze internet banking. Immediately dial <strong>1930</strong>.': [
+    'पासबुक/एटीएम कार्ड पर दिए गए बैंक के 24/7 आपातकालीन नंबर पर कॉल करके कार्ड व नेटबैंकिंग ब्लॉक करवाएं। तुरंत <strong>1930</strong> डायल करें।',
+    'पासबुक/एटीएम कार्डवरील बँकेच्या २४/७ आपत्कालीन नंबरवर कॉल करून कार्ड व नेटबँकिंग ब्लॉक करा. तात्काळ <strong>१९३०</strong> डायल करा.'
+  ],
+  'Call your bank’s 24/7 emergency toll-free number from your passbook/ATM card to block your card and freeze internet banking. Immediately dial 1930.': [
+    'पासबुक/एटीएम कार्ड पर दिए गए बैंक के 24/7 आपातकालीन नंबर पर कॉल करके कार्ड व नेटबैंकिंग ब्लॉक करवाएं। तुरंत 1930 डायल करें।',
+    'पासबुक/एटीएम कार्डवरील बँकेच्या २४/७ आपत्कालीन नंबरवर कॉल करून कार्ड व नेटबँकिंग ब्लॉक करा. तात्काळ १९३० डायल करा.'
+  ],
+  'Change your UPI PINs, netbanking passwords, and email passwords. Uninstall any suspicious remote access apps (AnyDesk, QuickSupport) from your phone.': [
+    'अपने UPI पिन, नेटबैंकिंग पासवर्ड और ईमेल पासवर्ड तुरंत बदलें। फोन से किसी भी संदिग्ध रिमोट एक्सेस ऐप (AnyDesk, QuickSupport) को तुरंत अनइंस्टॉल करें।',
+    'आपले UPI पिन, नेटबँकिंग पासवर्ड आणि ईमेल पासवर्ड त्वरित बदला. फोनवरून संशयास्पद रिमोट ॲप्स (AnyDesk, QuickSupport) तात्काळ काढून टाका.'
+  ],
+  'Take screenshots of SMS alerts, transaction UTR numbers, UPI IDs, WhatsApp chats, and caller phone numbers. Do not delete message threads.': [
+    'बैंक से पैसे कटने वाले SMS, 12 अंकों के UTR नंबर, UPI आईडी, व्हाट्सएप चैट और कॉलर के फोन नंबर के स्क्रीनशॉट लें। कोई भी मैसेज डिलीट न करें।',
+    'पैसे वजा झाल्याचे SMS, १२ अंकी UTR क्रमांक, UPI आयडी, व्हॉट्सअ‍ॅप चॅट आणि फोन नंबरचे स्क्रीनशॉट घ्या. कोणतेही मेसेज डिलीट करू नका.'
+  ],
+  'File an official incident report at <a href="https://cybercrime.gov.in" target="_blank" rel="noopener" style="color: var(--cs-deep); font-weight:700;">cybercrime.gov.in</a> and visit your local police cyber station with printouts.': [
+    '<a href="https://cybercrime.gov.in" target="_blank" rel="noopener" style="color: var(--cs-deep); font-weight:700;">cybercrime.gov.in</a> पर आधिकारिक शिकायत दर्ज करें और प्रिंटआउट लेकर अपने स्थानीय पुलिस साइबर थाने जाएं।',
+    '<a href="https://cybercrime.gov.in" target="_blank" rel="noopener" style="color: var(--cs-deep); font-weight:700;">cybercrime.gov.in</a> वर अधिकृत सायबर तक्रार नोंदवा आणि प्रिंटआउट घेऊन स्थानिक पोलीस ठाण्यात जा.'
+  ],
+  'File an official incident report at cybercrime.gov.in and visit your local police cyber station with printouts.': [
+    'cybercrime.gov.in पर आधिकारिक शिकायत दर्ज करें और प्रिंटआउट लेकर अपने स्थानीय पुलिस साइबर थाने जाएं।',
+    'cybercrime.gov.in वर अधिकृत सायबर तक्रार नोंदवा आणि प्रिंटआउट घेऊन स्थानिक पोलीस ठाण्यात जा.'
+  ],
+  'Official Portal ↗': ['आधिकारिक पोर्टल ↗', 'अधिकृत पोर्टल ↗'],
+  'Official Portal': ['आधिकारिक पोर्टल', 'अधिकृत पोर्टल'],
   'Community Intelligence': ['सामुदायिक सूचना संकलन', 'समुदाय माहिती संकलन'],
   'Report a Scam Incident': ['धोखाधड़ी की घटना रिपोर्ट करें', 'झालेल्या फसवणुकीची नोंद करा'],
   'Submit Community Scam Report': ['समुदाय स्कैम रिपोर्ट सबमिट करें', 'सायबरसाथीकडे तक्रार सबमिट करा'],
@@ -459,6 +489,25 @@ function applyTranslations(lang = getLanguage()) {
         }
       }
     });
+
+    // 4. Translate specialized rich HTML containers (e.g., protocol cards, data-i18n-html)
+    document.querySelectorAll('[data-i18n-html], .protocol-card p').forEach(el => {
+      const orig = el.__csOriginalHtml !== undefined ? el.__csOriginalHtml : el.innerHTML.trim();
+      if (el.__csOriginalHtml === undefined) el.__csOriginalHtml = orig;
+      const k = normalizeKey(orig);
+      if (T[k]) {
+        el.innerHTML = lang === 'hi' ? T[k][0] : lang === 'mr' ? T[k][1] : orig;
+      }
+    });
+
+    // 5. Notify registered page-level dynamic renderers
+    if (typeof window.updateProtocolSteps === 'function') {
+      window.updateProtocolSteps(lang);
+    }
+    if (typeof window.renderSchemes === 'function') {
+      const schemesEl = document.getElementById('schemesGrid');
+      if (schemesEl) window.renderSchemes();
+    }
   }
 }
 
