@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#08779D" />
+  <meta name="description" content="Immediate action checklist if you have been defrauded, plus community scam reporting, callback requests, and volunteer enrollment." />
+  <title>Get Help & Emergency — CyberSathi</title>
+
+  <!-- Global Stylesheet -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+
+  <!-- Supabase Client & Config -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#mainContent">Skip to content</a>
+
+  <!-- National Cyber Crime Helpline Strip (Government of India) -->
+  <aside class="national-alert-bar" aria-label="National Cybercrime Reporting Helpline">
+    <div class="container">
+      <div class="alert-item">
+        <span class="alert-badge">Govt. of India</span>
+        <span>National Cyber Crime Helpline:</span>
+        <a href="tel:1930" class="alert-phone-link">📞 <strong>1930</strong> (Toll-Free)</a>
+      </div>
+      <div class="alert-secondary-links">
+        <span>CyberSathi Community Initiative</span>
+        <span>•</span>
+        <a href="https://cybercrime.gov.in" target="_blank" rel="noopener">cybercrime.gov.in ↗</a>
+        <span>•</span>
+        <a href="#emergencyProtocol">5-Step Protocol ↓</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Site Navigation Taskbar -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="CyberSathi Home">
+        <div class="brand-shield-wrap">🛡️</div>
+        <div class="brand-text">
+          <strong>Cyber<span>Sathi</span></strong>
+          <small>Safe Digital Lives • Stronger Communities</small>
+        </div>
+      </a>
+
+      <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="topics.html">Topics</a>
+        <a class="nav-link" href="courses.html">Courses 🎓</a>
+        <a class="nav-link" href="learning.html">Videos</a>
+        <a class="nav-link" href="tools.html#scamSimulatorSection">Scam Simulator 🕵️</a>
+        <a class="nav-link" href="tools.html">Quiz & Tools</a>
+        <a class="nav-link active" href="emergency.html" aria-current="page">Emergency 🚨</a>
+      </nav>
+
+      <div class="nav-tools">
+        <div class="lang-select-wrap">
+          <label class="sr-only" for="siteLangSelect">Language</label>
+          <select id="siteLangSelect" class="lang-select" aria-label="Select Language">
+            <option value="en">🇬🇧 English</option>
+            <option value="hi">🇮🇳 हिंदी</option>
+            <option value="mr">🇮🇳 मराठी</option>
+          </select>
+        </div>
+        <button id="themeToggle" class="icon-btn" aria-label="Toggle Dark/Light Mode">☀️</button>
+        <div id="navAuthSlot" class="nav-auth-slot"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="mainContent">
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow" style="background: rgba(200,60,60,0.15); color: var(--cs-danger);">Immediate Response</span>
+        <h1>I Got Scammed — What Should I Do?</h1>
+        <p>
+          Do not panic. Following the proper steps within the first 1 to 2 hours (the "Golden Hour") dramatically increases the chances of freezing stolen funds.
+        </p>
+      </div>
+    </section>
+
+    <!-- 5-Step Protocol Section -->
+    <section class="section" id="emergencyProtocol">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Action Checklist</span>
+          <h2>5-Step Priority Protocol</h2>
+          <p>Follow these steps immediately in sequence if money has been deducted or an account compromised.</p>
+        </div>
+
+        <div class="protocol-steps">
+          <div class="card protocol-card">
+            <div class="protocol-number">1</div>
+            <h3>Stay Calm & Disconnect</h3>
+            <p>
+              Hang up immediately on the scammer. Do not transfer more money to "unlock" previous funds. Take a deep breath.
+            </p>
+          </div>
+
+          <div class="card protocol-card">
+            <div class="protocol-number">2</div>
+            <h3>Contact Bank & Dial 1930</h3>
+            <p>
+              Call your bank’s 24/7 emergency toll-free number from your passbook/ATM card to block your card and freeze internet banking. Immediately dial <strong>1930</strong>.
+            </p>
+          </div>
+
+          <div class="card protocol-card">
+            <div class="protocol-number">3</div>
+            <h3>Block Apps & Change PINs</h3>
+            <p>
+              Change your UPI PINs, netbanking passwords, and email passwords. Uninstall any suspicious remote access apps (AnyDesk, QuickSupport) from your phone.
+            </p>
+          </div>
+
+          <div class="card protocol-card">
+            <div class="protocol-number">4</div>
+            <h3>Preserve All Evidence</h3>
+            <p>
+              Take screenshots of SMS alerts, transaction UTR numbers, UPI IDs, WhatsApp chats, and caller phone numbers. Do not delete message threads.
+            </p>
+          </div>
+
+          <div class="card protocol-card">
+            <div class="protocol-number">5</div>
+            <h3>File National Police Complaint</h3>
+            <p>
+              File an official incident report at <a href="https://cybercrime.gov.in" target="_blank" rel="noopener" style="color: var(--cs-deep); font-weight:700;">cybercrime.gov.in</a> and visit your local police cyber station with printouts.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Community Reporting & Support Forms -->
+    <section class="section section-tinted">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: start;">
+          
+          <!-- Form 1: Community Scam Report -->
+          <div class="card form-shell" style="width: 100%;">
+            <span class="eyebrow">Community Intelligence</span>
+            <h3 style="font-family: 'Outfit', sans-serif; font-size: 22px; color: var(--cs-deep); margin-bottom: 6px;">
+              Report a Scam Incident
+            </h3>
+            <p style="font-size: 13.5px; color: var(--cs-muted); margin-bottom: 20px;">
+              Help alert fellow villagers and communities. Stored securely in our community database and synced with CyberSathi coordinators.
+            </p>
+
+            <form id="scamReportForm">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="scamType">Scam Category *</label>
+                  <select id="scamType" name="scam_type" required>
+                    <option value="">Select category...</option>
+                    <option value="OTP Fraud">OTP Fraud</option>
+                    <option value="UPI / QR Code Fraud">UPI / QR Code Fraud</option>
+                    <option value="Fake Bank KYC Call">Fake Bank KYC Call</option>
+                    <option value="Digital Arrest Threat">Digital Arrest Threat</option>
+                    <option value="Fake Job / Task Scam">Fake Job / Task Scam</option>
+                    <option value="Investment / Trading App">Investment / Trading App</option>
+                    <option value="Instant Loan Harassment">Instant Loan Harassment</option>
+                    <option value="WhatsApp Impersonation">WhatsApp Impersonation</option>
+                    <option value="Fake Govt Scheme Link">Fake Govt Scheme Link</option>
+                    <option value="Other Scam">Other Scam</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="scamAmount">Estimated Financial Loss (₹)</label>
+                  <input type="number" id="scamAmount" name="amount" placeholder="e.g. 5000" min="0" />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="scamPlatform">Platform / Medium</label>
+                  <input type="text" id="scamPlatform" name="platform" placeholder="e.g. Phone Call, WhatsApp, Telegram, OLX" />
+                </div>
+
+                <div class="form-group">
+                  <label for="scamDate">Date of Incident</label>
+                  <input type="date" id="scamDate" name="incident_date" />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="scamDistrict">District</label>
+                  <input type="text" id="scamDistrict" name="district" placeholder="e.g. Nagpur, Wardha, Amravati" />
+                </div>
+
+                <div class="form-group">
+                  <label for="scamState">State</label>
+                  <input type="text" id="scamState" name="state" value="Maharashtra" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="scamDescription">What Happened? (Details) *</label>
+                <textarea id="scamDescription" name="description" rows="3" required placeholder="Describe what the scammer told you and how the transaction happened..."></textarea>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="reporterName">Your Name (Optional)</label>
+                  <input type="text" id="reporterName" name="reporter_name" placeholder="Leave blank to report anonymously" />
+                </div>
+
+                <div class="form-group">
+                  <label for="reporterContact">Phone / Email (Optional)</label>
+                  <input type="text" id="reporterContact" name="reporter_contact" placeholder="For volunteer follow-up only" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="checkbox-label">
+                  <input type="checkbox" name="consent" required checked />
+                  <span>I confirm this information is accurate to the best of my knowledge.</span>
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn-danger" style="width: 100%;">
+                Submit Community Scam Report
+              </button>
+            </form>
+          </div>
+
+          <!-- Form 2: Request Callback & Volunteer Forms -->
+          <div style="display: grid; gap: 32px;">
+            <!-- Callback Form -->
+            <div class="card form-shell" style="width: 100%;">
+              <span class="eyebrow">Free Guidance</span>
+              <h3 style="font-family: 'Outfit', sans-serif; font-size: 20px; color: var(--cs-deep); margin-bottom: 6px;">
+                Request a Callback
+              </h3>
+              <p style="font-size: 13.5px; color: var(--cs-muted); margin-bottom: 18px;">
+                Need guidance on a suspicious call or message? A trained CyberSathi guide will call you back.
+              </p>
+
+              <form id="callbackForm">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="callName">Your Name *</label>
+                    <input type="text" id="callName" name="name" required placeholder="Full Name" />
+                  </div>
+                  <div class="form-group">
+                    <label for="callPhone">Phone Number *</label>
+                    <input type="tel" id="callPhone" name="phone" required placeholder="10-digit mobile" pattern="[0-9]{10}" />
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="callLang">Language Preference</label>
+                    <select id="callLang" name="language">
+                      <option value="mr">मराठी (Marathi)</option>
+                      <option value="hi">हिन्दी (Hindi)</option>
+                      <option value="en">English</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="callTime">Preferred Time</label>
+                    <select id="callTime" name="preferred_time">
+                      <option value="Morning 10:00 AM – 1:00 PM">Morning (10 AM – 1 PM)</option>
+                      <option value="Afternoon 2:00 PM – 5:00 PM">Afternoon (2 PM – 5 PM)</option>
+                      <option value="Evening 5:00 PM – 8:00 PM">Evening (5 PM – 8 PM)</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="callPurpose">Reason for Call *</label>
+                  <input type="text" id="callPurpose" name="purpose" required placeholder="e.g. Suspected fake bank SMS or loan app call" />
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                  Request Voice Saathi Callback
+                </button>
+              </form>
+            </div>
+
+            <!-- Volunteer Enrollment Form -->
+            <div class="card form-shell" style="width: 100%;">
+              <span class="eyebrow">Community Movement</span>
+              <h3 style="font-family: 'Outfit', sans-serif; font-size: 20px; color: var(--cs-green); margin-bottom: 6px;">
+                Become a CyberSathi Volunteer
+              </h3>
+              <p style="font-size: 13.5px; color: var(--cs-muted); margin-bottom: 18px;">
+                Help lead cyber awareness workshops in your village, college, or neighborhood.
+              </p>
+
+              <form id="volunteerForm">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="volName">Name *</label>
+                    <input type="text" id="volName" name="name" required placeholder="Full Name" />
+                  </div>
+                  <div class="form-group">
+                    <label for="volAge">Age</label>
+                    <input type="number" id="volAge" name="age" min="16" max="90" placeholder="e.g. 21" />
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="volLocation">Village / City *</label>
+                    <input type="text" id="volLocation" name="village_city" required placeholder="e.g. Saoner, Nagpur" />
+                  </div>
+                  <div class="form-group">
+                    <label for="volContact">Contact (Phone/Email) *</label>
+                    <input type="text" id="volContact" name="contact" required placeholder="Phone number" />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="volInterest">Area of Interest</label>
+                  <select id="volInterest" name="area_of_interest">
+                    <option value="Rural Gram Panchayat Awareness">Rural Gram Panchayat Awareness</option>
+                    <option value="Senior Citizen Cyber Support">Senior Citizen Cyber Support</option>
+                    <option value="School & College Youth Sessions">School & College Youth Sessions</option>
+                    <option value="Women Self-Help Groups (SHG)">Women Self-Help Groups (SHG)</option>
+                  </select>
+                </div>
+
+                <button type="submit" class="btn btn-green" style="width: 100%;">
+                  Join CyberSathi Volunteer Brigade
+                </button>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal Shell -->
+  <div id="csModal" class="cs-modal" aria-hidden="true" role="dialog">
+    <div class="cs-modal-backdrop"></div>
+    <div class="cs-modal-card">
+      <button class="cs-modal-close" aria-label="Close dialog">✕</button>
+      <div id="csModalContent"></div>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <!-- National Disclaimer Box -->
+      <div class="footer-disclaimer-box">
+        <strong>Important Clarification:</strong> CyberSathi is a grassroots community cyber-safety educational project. <strong>1930</strong> is the official National Cyber Crime Reporting Helpline operated by the Ministry of Home Affairs (I4C), Government of India. In cases of financial cyber fraud, dial <strong>1930</strong> and report on <a href="https://cybercrime.gov.in" target="_blank" rel="noopener" style="color: #38bdf8; text-decoration: underline;">cybercrime.gov.in</a> immediately.
+      </div>
+
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <strong>Cyber<span>Sathi</span></strong>
+          <p>
+            A grassroots cybersecurity literacy and community protection initiative. Awareness for every village, opportunity for every family.
+          </p>
+          <div style="margin-top: 14px;">
+            <span style="font-size: 11.5px; color: #94a3b8; display: block; text-transform: uppercase; letter-spacing: 0.05em;">National Cybercrime Helpline (Govt. of India):</span>
+            <a href="tel:1930" class="footer-helpline">📞 1930</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Pages</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="topics.html">Awareness Topics</a></li>
+            <li><a href="courses.html">Free Courses 🎓</a></li>
+            <li><a href="learning.html">Videos & Stories</a></li>
+            <li><a href="tools.html">Tools & Quiz</a></li>
+            <li><a href="emergency.html">Get Help / Emergency</a></li>
+            <li><a href="login.html" style="font-weight: 700; color: #38bdf8;">Citizen & Sathi Login 🔑</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Official Portals</h3>
+          <ul>
+            <li><a href="https://cybercrime.gov.in" target="_blank" rel="noopener">cybercrime.gov.in ↗</a></li>
+            <li><a href="https://www.myscheme.gov.in" target="_blank" rel="noopener">myScheme.gov.in ↗</a></li>
+            <li><a href="https://sancharsaathi.gov.in" target="_blank" rel="noopener">Sanchar Saathi (DoT) ↗</a></li>
+            <li><a href="https://rbikehtahai.rbi.org.in" target="_blank" rel="noopener">RBI Kehta Hai ↗</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>National Authority</h3>
+          <p style="font-size: 13.5px; color: #9cbdb8; line-height: 1.6;">
+            <strong>Indian Cyber Crime Coordination Centre (I4C)</strong><br>
+            Ministry of Home Affairs, Govt. of India<br>
+            NDCC-II Building, Jai Singh Road, New Delhi 110001<br>
+            National Helpline: <a href="tel:1930" style="color: #38bdf8; font-weight: 700;">1930</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 CyberSathi. Built for grassroots digital safety education. Not an official government entity.</span>
+        <span>For real financial cyber fraud complaints, dial <strong>1930</strong> (National Helpline, Govt. of India).</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/store.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/emergency.js"></script>
+</body>
+</html>

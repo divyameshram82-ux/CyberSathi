@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#086b8b" />
+  <meta name="description" content="CyberSathi Citizen & Volunteer Portal. Sign in to track digital literacy course progress, download verified certificates, and access community cyber support." />
+  <title>Citizen & Sathi Portal — CyberSathi</title>
+
+  <!-- Global Stylesheet -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+
+  <!-- Supabase Client & Config -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#mainContent">Skip to content</a>
+
+  <!-- National Cyber Crime Helpline Strip (Government of India) -->
+  <aside class="national-alert-bar" aria-label="National Cybercrime Reporting Helpline">
+    <div class="container">
+      <div class="alert-item">
+        <span class="alert-badge">Govt. of India</span>
+        <span>National Cyber Crime Helpline:</span>
+        <a href="tel:1930" class="alert-phone-link">📞 <strong>1930</strong> (Toll-Free)</a>
+      </div>
+      <div class="alert-secondary-links">
+        <span>CyberSathi Community Initiative</span>
+        <span>•</span>
+        <a href="https://cybercrime.gov.in" target="_blank" rel="noopener">cybercrime.gov.in ↗</a>
+        <span>•</span>
+        <a href="emergency.html">Emergency Steps →</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Site Navigation Taskbar -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="CyberSathi Home">
+        <div class="brand-shield-wrap">🛡️</div>
+        <div class="brand-text">
+          <strong>Cyber<span>Sathi</span></strong>
+          <small>Safe Digital Lives • Stronger Communities</small>
+        </div>
+      </a>
+
+      <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="topics.html">Topics</a>
+        <a class="nav-link" href="courses.html">Courses 🎓</a>
+        <a class="nav-link" href="learning.html">Videos</a>
+        <a class="nav-link" href="tools.html">Quiz & Tools</a>
+        <a class="nav-link" href="emergency.html">Emergency 🚨</a>
+      </nav>
+
+      <div class="nav-tools">
+        <div class="lang-select-wrap">
+          <label class="sr-only" for="siteLangSelect">Language</label>
+          <select id="siteLangSelect" class="lang-select" aria-label="Select Language">
+            <option value="en">🇬🇧 English</option>
+            <option value="hi">🇮🇳 हिंदी</option>
+            <option value="mr">🇮🇳 मराठी</option>
+          </select>
+        </div>
+        <button id="themeToggle" class="icon-btn" aria-label="Toggle Dark/Light Mode">☀️</button>
+        <div id="navAuthSlot" class="nav-auth-slot"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="mainContent">
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Community Cyber Portal</span>
+        <h1 id="portalHeroTitle">Citizen & Sathi Portal</h1>
+        <p id="portalHeroSub">
+          Sign in to track your course progress, download digital literacy certificates, and connect with trained village cyber guides across Maharashtra and India.
+        </p>
+      </div>
+    </section>
+
+    <!-- Dynamic Auth & Portal Section -->
+    <section class="auth-portal-section section">
+      <div class="container auth-wrapper">
+        <div id="authPortalRoot">
+          <!-- Dynamically populated by JS: either Auth Form or Citizen Dashboard -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col brand-col">
+        <div class="brand-text" style="color: #fff; margin-bottom: 8px;">
+          <strong style="font-size: 20px;">Cyber<span>Sathi</span></strong>
+        </div>
+        <p style="font-size: 13.5px; color: #cbd5e1; line-height: 1.6;">
+          Grassroots cyber safety education tailored for rural, semi-urban, and elder citizens across India.
+        </p>
+        <div style="margin-top: 14px;">
+          <span style="font-size: 11.5px; color: #94a3b8; display: block; text-transform: uppercase; letter-spacing: 0.05em;">National Cybercrime Helpline (Govt. of India):</span>
+          <a href="tel:1930" class="footer-helpline">📞 1930</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h3>Pages</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="topics.html">Awareness Topics</a></li>
+          <li><a href="courses.html">Free Courses 🎓</a></li>
+          <li><a href="learning.html">Videos & Stories</a></li>
+          <li><a href="tools.html">Tools & Quiz</a></li>
+          <li><a href="emergency.html">Get Help / Emergency</a></li>
+          <li><a href="login.html" style="font-weight: 700; color: #38bdf8;">Citizen & Sathi Login 🔑</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Official Portals</h3>
+        <ul>
+          <li><a href="https://cybercrime.gov.in" target="_blank" rel="noopener">cybercrime.gov.in ↗</a></li>
+          <li><a href="https://www.myscheme.gov.in" target="_blank" rel="noopener">myScheme.gov.in ↗</a></li>
+          <li><a href="https://sancharsaathi.gov.in" target="_blank" rel="noopener">Sanchar Saathi (DoT) ↗</a></li>
+          <li><a href="https://rbikehtahai.rbi.org.in" target="_blank" rel="noopener">RBI Kehta Hai ↗</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>National Authority</h3>
+        <p style="font-size: 13.5px; color: #9cbdb8; line-height: 1.6;">
+          <strong>Indian Cyber Crime Coordination Centre (I4C)</strong><br />
+          Ministry of Home Affairs, Govt. of India<br />
+          NDCC-II Building, Jai Singh Road, New Delhi 110001<br />
+          National Helpline: <a href="tel:1930" style="color: #38bdf8; font-weight: 700;">1930</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-flex">
+        <span>© 2026 CyberSathi. Grassroots digital safety education initiative.</span>
+        <span>For real financial cyber fraud, dial <strong>1930</strong> (National Cybercrime Helpline, I4C).</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Universal Modal Container -->
+  <div id="csModal" class="cs-modal" aria-hidden="true" role="dialog">
+    <div class="cs-modal-backdrop"></div>
+    <div class="cs-modal-card">
+      <button class="cs-modal-close" aria-label="Close dialog">✕</button>
+      <div id="csModalContent"></div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/i18n.js"></script>
+
+  <script>
+    // Tab and Portal State
+    let currentAuthTab = 'citizen'; // 'citizen', 'volunteer', 'register'
+
+    function renderAuthPortal() {
+      const root = document.getElementById('authPortalRoot');
+      if (!root) return;
+
+      const user = window.CyberSathiAuth ? window.CyberSathiAuth.getCurrentUser() : null;
+
+      if (user) {
+        renderDashboardView(root, user);
+      } else {
+        renderLoginFormView(root);
+      }
+    }
+
+    function switchAuthTab(tab) {
+      currentAuthTab = tab;
+      renderAuthPortal();
+    }
+
+    function renderLoginFormView(root) {
+      const isSb = window.CyberSathiAuth && window.CyberSathiAuth.isSupabaseActive();
+
+      root.innerHTML = `
+        <div class="auth-grid">
+          <div class="auth-card">
+            <!-- Tabs -->
+            <div class="auth-tabs" role="tablist">
+              <button class="auth-tab-btn ${currentAuthTab === 'citizen' ? 'active' : ''}" onclick="switchAuthTab('citizen')">
+                👤 Citizen / Student
+              </button>
+              <button class="auth-tab-btn ${currentAuthTab === 'volunteer' ? 'active' : ''}" onclick="switchAuthTab('volunteer')">
+                🤝 Sathi Volunteer
+              </button>
+              <button class="auth-tab-btn ${currentAuthTab === 'register' ? 'active' : ''}" onclick="switchAuthTab('register')">
+                ✨ New Sign Up
+              </button>
+            </div>
+
+            ${currentAuthTab === 'register' ? `
+              <!-- Register Form -->
+              <form class="auth-form" onsubmit="handleAuthRegister(event)">
+                <div class="auth-field">
+                  <label for="regName">Full Name *</label>
+                  <input type="text" id="regName" class="auth-input" placeholder="e.g. Rameshwar Patil" required />
+                </div>
+                <div class="auth-field">
+                  <label for="regEmail">Email Address or Phone *</label>
+                  <input type="text" id="regEmail" class="auth-input" placeholder="e.g. citizen@example.com" required />
+                </div>
+                <div class="auth-field">
+                  <label for="regDistrict">Home District</label>
+                  <select id="regDistrict" class="auth-select">
+                    <option value="Nagpur">Nagpur</option>
+                    <option value="Wardha">Wardha</option>
+                    <option value="Amravati">Amravati</option>
+                    <option value="Chandrapur">Chandrapur</option>
+                    <option value="Yavatmal">Yavatmal</option>
+                    <option value="Bhandara">Bhandara</option>
+                    <option value="Akola">Akola</option>
+                    <option value="Pune">Pune</option>
+                    <option value="Other">Other District</option>
+                  </select>
+                </div>
+                <div class="auth-field">
+                  <label for="regRole">Role</label>
+                  <select id="regRole" class="auth-select">
+                    <option value="citizen">Citizen / Elder</option>
+                    <option value="student">Student / Youth</option>
+                    <option value="volunteer">Volunteer Sathi</option>
+                  </select>
+                </div>
+                <div class="auth-field">
+                  <label for="regPassword">Create Password *</label>
+                  <input type="password" id="regPassword" class="auth-input" placeholder="Minimum 6 characters" minlength="6" required />
+                </div>
+                <button type="submit" class="auth-btn-submit">Complete Free Registration</button>
+              </form>
+            ` : `
+              <!-- Login Form -->
+              <form class="auth-form" onsubmit="handleAuthLogin(event)">
+                <div class="auth-field">
+                  <label for="loginEmail">Registered Email or Phone *</label>
+                  <input type="text" id="loginEmail" class="auth-input" placeholder="${currentAuthTab === 'volunteer' ? 'volunteer@cybersathi.org' : 'citizen@example.com'}" required />
+                </div>
+                <div class="auth-field">
+                  <label for="loginPassword">Password *</label>
+                  <input type="password" id="loginPassword" class="auth-input" placeholder="Enter password" required />
+                </div>
+                <button type="submit" class="auth-btn-submit">
+                  Sign In to ${currentAuthTab === 'volunteer' ? 'Sathi Brigade' : 'Citizen Portal'}
+                </button>
+              </form>
+            `}
+
+            <!-- 1-Click Instant Demo Login Box -->
+            <div class="auth-demo-box">
+              <div class="auth-demo-title">
+                <span>⚡</span>
+                <span>Instant 1-Click Demo Login</span>
+              </div>
+              <p style="font-size: 12.5px; color: var(--cs-muted); margin: 0 0 10px 0; line-height: 1.4;">
+                Testing or evaluating the platform? Jump in immediately without filling out credentials:
+              </p>
+              <div class="auth-demo-btns">
+                <button type="button" class="auth-btn-demo" onclick="handleDemoLogin('citizen')">
+                  <strong>👤 Demo Citizen</strong>
+                  <small>Rameshwar P. • Nagpur</small>
+                </button>
+                <button type="button" class="auth-btn-demo" onclick="handleDemoLogin('volunteer')">
+                  <strong>🤝 Demo Sathi Volunteer</strong>
+                  <small>Sneha D. • Wardha</small>
+                </button>
+              </div>
+            </div>
+
+            <div style="margin-top: 18px; text-align: center;">
+              <span style="font-size: 12px; color: var(--cs-muted); display: inline-flex; align-items: center; gap: 5px;">
+                <span style="color: ${isSb ? '#16a34a' : '#08779D'};">●</span>
+                ${isSb ? 'Supabase Cloud Authentication Active' : 'Offline / LocalStorage Demo Mode'}
+              </span>
+            </div>
+          </div>
+
+          <!-- Benefits & Security Info Sidebar -->
+          <div class="auth-sidebar-info">
+            <div class="auth-benefit-card">
+              <h4>🎓 Track Awareness Courses</h4>
+              <p>Your progress across all 5 specialized courses (Seniors, Students, Professionals, Women SHGs, Farmers) is automatically saved to your profile.</p>
+            </div>
+
+            <div class="auth-benefit-card">
+              <h4>🏅 Download Verified Certificates</h4>
+              <p>Earn official CyberSathi completion certificates with unique serial numbers, shareable directly with colleges, panchayats, or workplaces.</p>
+            </div>
+
+            <div class="auth-benefit-card">
+              <h4>🛡️ Community Incident Assistance</h4>
+              <p>Direct priority line to volunteer Sathis in Nagpur and Wardha for help reporting financial cyber fraud to 1930 / cybercrime.gov.in.</p>
+            </div>
+
+            <div class="auth-benefit-card" style="border-left: 4px solid var(--cs-deep);">
+              <h4 style="color: var(--cs-deep);">📞 National Helpline 1930</h4>
+              <p>If you have lost money to cybercrime in the last 2 hours (Golden Hour), immediately dial <strong>1930</strong> before anything else.</p>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderDashboardView(root, user) {
+      const isVolunteer = user.role && user.role.includes('Volunteer');
+      const coursesCount = (user.completedCourses || []).length;
+      const certs = user.certificates || [];
+
+      root.innerHTML = `
+        <div class="portal-dashboard">
+          <!-- Hero Profile Banner -->
+          <div class="portal-hero-banner">
+            <div class="portal-hero-header">
+              <div class="portal-user-badge">
+                <div class="portal-avatar-large">
+                  ${isVolunteer ? '🤝' : '👤'}
+                </div>
+                <div class="portal-user-meta">
+                  <h2>Welcome back, ${escapeHtml(user.name)}!</h2>
+                  <div class="portal-user-tags">
+                    <span class="portal-tag role">${escapeHtml(user.role || 'Citizen')}</span>
+                    <span class="portal-tag">📍 ${escapeHtml(user.district || 'Nagpur')}, Maharashtra</span>
+                    <span class="portal-tag">${escapeHtml(user.email)}</span>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <button class="btn btn-outline" style="border-color: rgba(255,255,255,0.4); color: #fff;" onclick="window.CyberSathiAuth.logout()">
+                  Sign Out / Switch Account
+                </button>
+              </div>
+            </div>
+
+            <div class="portal-hero-stats">
+              <div class="portal-stat-pill">
+                <small>Courses Completed</small>
+                <strong>${coursesCount} / 5</strong>
+              </div>
+              <div class="portal-stat-pill">
+                <small>Certificates Earned</small>
+                <strong>${certs.length}</strong>
+              </div>
+              <div class="portal-stat-pill">
+                <small>Helpline Status</small>
+                <strong>1930 Ready</strong>
+              </div>
+              <div class="portal-stat-pill">
+                <small>Community Status</small>
+                <strong>Active Defender</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dashboard Grid -->
+          <div class="portal-grid">
+            <!-- Left: Course Progress & Certificates -->
+            <div class="portal-panel">
+              <div class="portal-panel-title">
+                <span>📚 My Awareness Courses</span>
+                <a href="courses.html" class="btn btn-sm btn-primary">Browse All Courses →</a>
+              </div>
+
+              <div class="portal-course-list">
+                <div class="portal-course-item">
+                  <div>
+                    <h4 style="margin: 0 0 4px 0; font-size: 15px; color: var(--cs-ink);">Senior Citizens Digital Shield</h4>
+                    <small style="color: var(--cs-muted);">Fake Police Digital Arrest, Pension Jeevan Praman & Safe Banking</small>
+                  </div>
+                  <div>
+                    <a href="courses.html" class="btn btn-sm btn-outline">
+                      ${(user.completedCourses || []).includes('senior') ? '✓ Completed' : 'Continue Course →'}
+                    </a>
+                  </div>
+                </div>
+
+                <div class="portal-course-item">
+                  <div>
+                    <h4 style="margin: 0 0 4px 0; font-size: 15px; color: var(--cs-ink);">Students & Youth Cyber Defense</h4>
+                    <small style="color: var(--cs-muted);">Telegram Tasks, Loan App Blackmail, Social Hijacking</small>
+                  </div>
+                  <div>
+                    <a href="courses.html" class="btn btn-sm btn-outline">
+                      ${(user.completedCourses || []).includes('students') ? '✓ Completed' : 'Start Course →'}
+                    </a>
+                  </div>
+                </div>
+
+                <div class="portal-course-item">
+                  <div>
+                    <h4 style="margin: 0 0 4px 0; font-size: 15px; color: var(--cs-ink);">Women & SHG Digital Swavalamban</h4>
+                    <small style="color: var(--cs-muted);">Bachat Gat Savings, UPI QR Scanner Rules, WhatsApp Privacy</small>
+                  </div>
+                  <div>
+                    <a href="courses.html" class="btn btn-sm btn-outline">
+                      ${(user.completedCourses || []).includes('women') ? '✓ Completed' : 'Start Course →'}
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              ${certs.length > 0 ? `
+                <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--cs-line);">
+                  <h4 style="font-family: 'Outfit', sans-serif; font-size: 16px; color: var(--cs-deep); margin-bottom: 14px;">
+                    🏅 Earned Certificates of Digital Literacy
+                  </h4>
+                  ${certs.map(c => `
+                    <div class="portal-cert-card">
+                      <div>
+                        <strong style="color: #166534; font-size: 14.5px; display: block;">${escapeHtml(c.courseTitle)}</strong>
+                        <span style="font-size: 12.5px; color: var(--cs-muted);">Badge: <strong>${escapeHtml(c.badge)}</strong> • Issued: ${c.date}</span>
+                        <div style="font-size: 11px; color: #15803d; font-family: monospace; margin-top: 2px;">Serial: ${c.certId}</div>
+                      </div>
+                      <div>
+                        <a href="courses.html" class="btn btn-sm btn-primary" style="white-space: nowrap;">View Certificate</a>
+                      </div>
+                    </div>
+                  `).join('')}
+                </div>
+              ` : ''}
+            </div>
+
+            <!-- Right: Quick Citizen Tools & Emergency -->
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+              <div class="portal-panel" style="background: #fff8f8; border-color: #fecaca;">
+                <h4 style="color: #dc2626; font-family: 'Outfit', sans-serif; margin-bottom: 8px; font-size: 16px;">
+                  🚨 Emergency Assistance
+                </h4>
+                <p style="font-size: 13px; color: #7f1d1d; line-height: 1.5; margin-bottom: 14px;">
+                  Lost money or suspect an ongoing fraudulent call? Take immediate action:
+                </p>
+                <div style="display: grid; gap: 8px;">
+                  <a href="tel:1930" class="btn btn-danger" style="text-align: center; justify-content: center;">
+                    📞 Dial National Helpline 1930
+                  </a>
+                  <a href="emergency.html" class="btn btn-outline" style="text-align: center; justify-content: center;">
+                    Emergency Checklist (Golden Hour)
+                  </a>
+                </div>
+              </div>
+
+              <div class="portal-panel">
+                <h4 style="font-family: 'Outfit', sans-serif; color: var(--cs-deep); margin-bottom: 12px; font-size: 16px;">
+                  ⚡ Quick Community Actions
+                </h4>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                  <a href="tools.html#quizSection" class="btn btn-outline" style="font-size: 13px; text-align: left;">
+                    🎯 Test Your Scam Knowledge (Quiz)
+                  </a>
+                  <a href="tools.html#phishingSim" class="btn btn-outline" style="font-size: 13px; text-align: left;">
+                    🔍 Practice Fake SMS Simulator
+                  </a>
+                  <a href="emergency.html#scamReportSection" class="btn btn-outline" style="font-size: 13px; text-align: left;">
+                    📝 Log a Community Scam Incident
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    async function handleAuthLogin(e) {
+      e.preventDefault();
+      const email = document.getElementById('loginEmail')?.value;
+      const pass = document.getElementById('loginPassword')?.value;
+      if (!email || !pass) return;
+
+      const res = await window.CyberSathiAuth.login(email, pass, currentAuthTab);
+      if (res && res.success) {
+        if (window.showToast) window.showToast(`Welcome back, ${res.user.name}!`, 'success');
+        renderAuthPortal();
+      }
+    }
+
+    async function handleAuthRegister(e) {
+      e.preventDefault();
+      const name = document.getElementById('regName')?.value;
+      const email = document.getElementById('regEmail')?.value;
+      const district = document.getElementById('regDistrict')?.value;
+      const role = document.getElementById('regRole')?.value;
+      const password = document.getElementById('regPassword')?.value;
+
+      if (!name || !email || !password) return;
+
+      const res = await window.CyberSathiAuth.register({ name, email, password, district, role });
+      if (res && res.success) {
+        if (window.showToast) window.showToast(`Registration successful! Welcome, ${res.user.name}`, 'success');
+        renderAuthPortal();
+      }
+    }
+
+    function handleDemoLogin(role) {
+      const user = window.CyberSathiAuth.quickDemoLogin(role);
+      if (window.showToast) {
+        window.showToast(`Logged in as ${user.name} (${user.role})`, 'success');
+      }
+      renderAuthPortal();
+    }
+
+    // Initialize portal on load
+    document.addEventListener('DOMContentLoaded', () => {
+      renderAuthPortal();
+    });
+    window.renderAuthPortal = renderAuthPortal;
+  </script>
+</body>
+</html>

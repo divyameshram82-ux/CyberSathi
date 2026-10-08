@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#086b8b" />
+  <meta name="description" content="Free community cybersecurity courses tailored for senior citizens, students, working professionals, women self-help groups, and rural farmers." />
+  <title>Free Cyber Awareness Courses — CyberSathi</title>
+
+  <!-- Global Stylesheet -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+
+  <!-- Supabase Client & Config -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#mainContent">Skip to content</a>
+
+  <!-- National Cyber Crime Helpline Strip (Government of India) -->
+  <aside class="national-alert-bar" aria-label="National Cybercrime Reporting Helpline">
+    <div class="container">
+      <div class="alert-item">
+        <span class="alert-badge">Govt. of India</span>
+        <span>National Cyber Crime Helpline:</span>
+        <a href="tel:1930" class="alert-phone-link">📞 <strong>1930</strong> (Toll-Free)</a>
+      </div>
+      <div class="alert-secondary-links">
+        <span>CyberSathi Community Initiative</span>
+        <span>•</span>
+        <a href="https://cybercrime.gov.in" target="_blank" rel="noopener">cybercrime.gov.in ↗</a>
+        <span>•</span>
+        <a href="emergency.html">Emergency Steps →</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Site Navigation Taskbar -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="CyberSathi Home">
+        <div class="brand-shield-wrap">🛡️</div>
+        <div class="brand-text">
+          <strong>Cyber<span>Sathi</span></strong>
+          <small>Safe Digital Lives • Stronger Communities</small>
+        </div>
+      </a>
+
+      <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="topics.html">Topics</a>
+        <a class="nav-link active" href="courses.html" aria-current="page">Courses 🎓</a>
+        <a class="nav-link" href="learning.html">Videos</a>
+        <a class="nav-link" href="tools.html#scamSimulatorSection">Scam Simulator 🕵️</a>
+        <a class="nav-link" href="tools.html">Quiz & Tools</a>
+        <a class="nav-link" href="emergency.html">Emergency 🚨</a>
+      </nav>
+
+      <div class="nav-tools">
+        <div class="lang-select-wrap">
+          <label class="sr-only" for="siteLangSelect">Language</label>
+          <select id="siteLangSelect" class="lang-select" aria-label="Select Language">
+            <option value="en">🇬🇧 English</option>
+            <option value="hi">🇮🇳 हिंदी</option>
+            <option value="mr">🇮🇳 मराठी</option>
+          </select>
+        </div>
+        <button id="themeToggle" class="icon-btn" aria-label="Toggle Dark/Light Mode">☀️</button>
+        <div id="navAuthSlot" class="nav-auth-slot"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="mainContent">
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">100% Free Community Education</span>
+        <h1>Practical Cyber Safety Courses for Everyone</h1>
+        <p>
+          Targeted digital awareness curriculum designed for every generation and livelihood. Learn step-by-step how to identify modern cyber fraud, test your instincts, and earn a downloadable completion certificate.
+        </p>
+      </div>
+    </section>
+
+    <!-- Courses Explorer Section -->
+    <section class="section">
+      <div class="container">
+        <!-- 🎓 Interactive Multilingual Cyber-Safety Learning Pathway (Duolingo-Style) -->
+        <div id="cyberAcademyCoursesMount" class="cybersathi-academy-mount"></div>
+
+        <div class="section-head" style="margin-top: 24px;">
+          <span class="eyebrow">Targeted Community Tracks</span>
+          <h2>5 Specialized Community Cyber Awareness Courses</h2>
+          <p>
+            In addition to the 10-Unit Interactive Pathway above, explore our 5 dedicated community tracks for Senior Citizens, Students, Working Professionals, Women SHGs, and Farmers.
+          </p>
+        </div>
+
+        <!-- Category Filter Toolbar -->
+        <div class="course-filter-bar" role="toolbar" aria-label="Course Category Filters">
+          <button class="course-filter-btn active" data-category="all">
+            🌟 All Courses
+          </button>
+          <button class="course-filter-btn" data-category="senior">
+            👴 Senior Citizens & Elders
+          </button>
+          <button class="course-filter-btn" data-category="students">
+            🎓 Students & Youth
+          </button>
+          <button class="course-filter-btn" data-category="professionals">
+            💼 Working Professionals
+          </button>
+          <button class="course-filter-btn" data-category="women">
+            👩 Women & SHGs (Bachat Gat)
+          </button>
+          <button class="course-filter-btn" data-category="farmers">
+            🌾 Farmers & Rural Families
+          </button>
+        </div>
+
+        <!-- Dynamic Course Cards Grid -->
+        <div class="courses-grid" id="coursesGrid">
+          <!-- Populated by js/courses.js -->
+        </div>
+
+        <!-- Community Workshops & Group Screenings Notice -->
+        <div style="background: linear-gradient(135deg, #052631 0%, #074659 60%, #0c3829 100%); color: #fff; border-radius: 20px; padding: 40px; margin-top: 20px; box-shadow: var(--cs-shadow);">
+          <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 32px; align-items: center;" class="centre-grid">
+            <div>
+              <span class="eyebrow" style="background: rgba(255,255,255,0.14); color: #fff; border: 1px solid rgba(255,255,255,0.25);">Grassroots Outreach</span>
+              <h2 style="font-family: 'Outfit', sans-serif; font-size: 26px; margin: 10px 0 12px; color: #fff;">
+                Organize a Free Cyber Awareness Workshop in Your Village or College
+              </h2>
+              <p style="font-size: 15px; color: #d8ece8; line-height: 1.6; margin-bottom: 20px;">
+                Are you a Gram Panchayat official, college professor, senior citizens association leader, or SHG cluster coordinator? CyberSathi provides free offline workshop kits, Marathi/Hindi presentations, and volunteer training across Vidarbha and Maharashtra.
+              </p>
+              <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                <a href="tools.html#requestCallback" class="btn btn-blue">
+                  <span>Request Offline Workshop Support 🤝</span>
+                </a>
+                <a href="tools.html#volunteerSection" class="btn btn-outline" style="color: #fff; border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.06);">
+                  <span>Join as Volunteer Trainer →</span>
+                </a>
+              </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); border-radius: 16px; padding: 24px; backdrop-filter: blur(12px);">
+              <h3 style="font-family: 'Outfit', sans-serif; font-size: 18px; color: #7dd3fc; margin-bottom: 12px;">
+                What Each Free Course Includes:
+              </h3>
+              <ul style="list-style: none; padding: 0; margin: 0; font-size: 13.5px; line-height: 1.8; color: #e2f8f3;">
+                <li>✓ <strong>4 Practical Modules:</strong> Real-life scenario breakdowns without jargon</li>
+                <li>✓ <strong>Voice Audio Readout:</strong> Hear lessons aloud in Marathi, Hindi & English</li>
+                <li>✓ <strong>Scenario Knowledge Checks:</strong> Interactive testing of safe instincts</li>
+                <li>✓ <strong>Digital Literacy Badge:</strong> Shareable, printable completion certificate</li>
+                <li>✓ <strong>Always 100% Free:</strong> No registration fee or payment required</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <div class="footer-brand">
+          <span class="brand-shield-wrap" style="width: 32px; height: 32px; font-size: 18px;">🛡️</span>
+          <strong>Cyber<span>Sathi</span></strong>
+        </div>
+        <p class="footer-desc">
+          "Awareness for Every Village, Opportunity for Every Family." A dedicated public cybersecurity education project built to safeguard rural and semi-urban communities.
+        </p>
+        <div class="footer-helpline-box">
+          <span style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: #7dd3fc; font-weight: 700;">Government of India Helpline</span>
+          <div style="font-size: 22px; font-weight: 800; color: #fff; margin: 4px 0;">
+            📞 1930
+          </div>
+          <small style="color: #cbd5e1; font-size: 11.5px;">National Cybercrime Reporting • 24x7 Free</small>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-title">Explore Courses & Guides</h4>
+        <ul class="footer-links">
+          <li><a href="courses.html?filter=senior">Senior Citizens Digital Shield</a></li>
+          <li><a href="courses.html?filter=students">Students & Youth Cyber Defense</a></li>
+          <li><a href="courses.html?filter=professionals">Working Professionals Security</a></li>
+          <li><a href="courses.html?filter=women">Women & SHG Bachat Gat Safety</a></li>
+          <li><a href="courses.html?filter=farmers">Farmers & Rural Krishi Suraksha</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-title">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="topics.html">18 Awareness Topics</a></li>
+          <li><a href="learning.html">Video Lessons & Audio Stories</a></li>
+          <li><a href="tools.html">Voice Saathi & Quiz</a></li>
+          <li><a href="tools.html#i4cSection">National Authority (I4C)</a></li>
+          <li><a href="emergency.html">Emergency Steps & 1930 Guide</a></li>
+          <li><a href="login.html" style="font-weight: 700; color: #38bdf8;">Citizen & Sathi Login 🔑</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-title">National Authority</h4>
+        <p style="font-size: 13.5px; color: #cbd5e1; line-height: 1.6; margin-bottom: 12px;">
+          <strong>Indian Cyber Crime Coordination Centre (I4C)</strong><br />
+          Ministry of Home Affairs, Govt. of India<br />
+          NDCC-II Building, Jai Singh Road, New Delhi 110001<br />
+          National Helpline: <a href="tel:1930" style="color: #7dd3fc; font-weight: 700;">1930</a>
+        </p>
+        <p style="font-size: 12.5px; color: #94a3b8; line-height: 1.5;">
+          CyberSathi is an independent community education initiative and does not replace official law enforcement agencies. In case of financial crime, dial 1930 immediately.
+        </p>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>© 2026 CyberSathi Community Initiative. All education materials are open and free for public community use.</p>
+      <div class="footer-bottom-links">
+        <a href="emergency.html">Emergency Support</a>
+        <a href="tools.html#volunteerSection">Volunteer Brigade</a>
+        <a href="login.html">Citizen & Sathi Portal</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Universal Modal Container -->
+  <div id="csModal" class="cs-modal" aria-hidden="true" role="dialog">
+    <div class="cs-modal-backdrop"></div>
+    <div class="cs-modal-card">
+      <button class="cs-modal-close" aria-label="Close dialog">✕</button>
+      <div id="csModalContent"></div>
+    </div>
+  </div>
+
+  <!-- Global Scripts -->
+  <script src="js/data.js?v=20260929"></script>
+  <script src="js/store.js?v=20260929"></script>
+  <script src="js/common.js?v=20260929"></script>
+  <script src="js/auth.js?v=20260929"></script>
+  <script src="js/i18n.js?v=20260929"></script>
+  <script src="js/courses.js?v=20260929"></script>
+  <script src="js/scam-simulator.js?v=20260929"></script>
+  <script src="js/cyber-academy.js?v=20260929"></script>
+</body>
+</html>

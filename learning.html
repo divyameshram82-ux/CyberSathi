@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#08779D" />
+  <meta name="description" content="Watch curated cyber safety awareness videos, explore animated stories, and listen to real reported fraud case studies." />
+  <title>Videos & Stories — CyberSathi</title>
+
+  <!-- Global Stylesheet -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+
+  <!-- Supabase Client & Config -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#mainContent">Skip to content</a>
+
+  <!-- National Cyber Crime Helpline Strip (Government of India) -->
+  <aside class="national-alert-bar" aria-label="National Cybercrime Reporting Helpline">
+    <div class="container">
+      <div class="alert-item">
+        <span class="alert-badge">Govt. of India</span>
+        <span>National Cyber Crime Helpline:</span>
+        <a href="tel:1930" class="alert-phone-link">📞 <strong>1930</strong> (Toll-Free)</a>
+      </div>
+      <div class="alert-secondary-links">
+        <span>CyberSathi Community Initiative</span>
+        <span>•</span>
+        <a href="https://cybercrime.gov.in" target="_blank" rel="noopener">cybercrime.gov.in ↗</a>
+        <span>•</span>
+        <a href="emergency.html">Emergency Steps →</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Site Navigation Taskbar -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="CyberSathi Home">
+        <div class="brand-shield-wrap">🛡️</div>
+        <div class="brand-text">
+          <strong>Cyber<span>Sathi</span></strong>
+          <small>Safe Digital Lives • Stronger Communities</small>
+        </div>
+      </a>
+
+      <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="topics.html">Topics</a>
+        <a class="nav-link" href="courses.html">Courses 🎓</a>
+        <a class="nav-link active" href="learning.html" aria-current="page">Videos</a>
+        <a class="nav-link" href="tools.html#scamSimulatorSection">Scam Simulator 🕵️</a>
+        <a class="nav-link" href="tools.html">Quiz & Tools</a>
+        <a class="nav-link" href="emergency.html">Emergency 🚨</a>
+      </nav>
+
+      <div class="nav-tools">
+        <div class="lang-select-wrap">
+          <label class="sr-only" for="siteLangSelect">Language</label>
+          <select id="siteLangSelect" class="lang-select" aria-label="Select Language">
+            <option value="en">🇬🇧 English</option>
+            <option value="hi">🇮🇳 हिंदी</option>
+            <option value="mr">🇮🇳 मराठी</option>
+          </select>
+        </div>
+        <button id="themeToggle" class="icon-btn" aria-label="Toggle Dark/Light Mode">☀️</button>
+        <div id="navAuthSlot" class="nav-auth-slot"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="mainContent">
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Multimedia Cyber Literacy</span>
+        <h1>Awareness Videos, Animated Stories & Real Cases</h1>
+        <p>
+          Learning through visual narratives and real reported incidents. See how scammers operate in the real world and discover how everyday vigilance protects your family savings.
+        </p>
+      </div>
+    </section>
+
+    <!-- Animated Story Player Section -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Step-by-Step Stories</span>
+          <h2>🎬 Animated Cyber-Awareness Stories</h2>
+          <p>Select a scenario below to walk through how scams unfold and how family members stop them.</p>
+        </div>
+
+        <div class="story-player-card">
+          <!-- Story Selector Chips -->
+          <div id="storyChips" class="story-selector-chips" role="tablist">
+            <!-- Populated by js/learning.js -->
+          </div>
+
+          <!-- Animated Scene Stage -->
+          <div class="story-stage">
+            <div id="stageIcon" class="stage-icon">👵</div>
+            <div id="stageCaption" class="stage-caption">Loading scenario...</div>
+          </div>
+
+          <!-- Controls & Steps -->
+          <div class="story-nav">
+            <button id="storyPrev" class="btn btn-outline" disabled>← Previous Scene</button>
+            <div id="storyStepIndicator" class="story-steps-indicator">Scene 1 of 4</div>
+            <button id="storyListen" class="btn btn-blue">🔊 Listen to Scene</button>
+            <button id="storyNext" class="btn btn-primary">Next Scene →</button>
+          </div>
+
+          <div id="storyLesson" style="margin-top: 20px; padding: 14px 18px; border-radius: var(--cs-radius-sm); background: color-mix(in srgb, var(--cs-green) 12%, var(--cs-card-bg)); font-weight: 700; color: var(--cs-green); font-size: 14px;">
+            🛡️ Lesson: Loading takeaway...
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- YouTube Awareness Videos -->
+    <section id="realWorldVideosSection" class="section section-tinted">
+      <div class="container">
+        <div class="section-head" style="max-width: 860px;">
+          <span class="eyebrow">Hindi Cyber-Awareness Video Library</span>
+          <h2>🎭 Real-World Cyber Awareness Videos</h2>
+          <p>Learn from real cyber-awareness performances and educational videos shared on YouTube.</p>
+
+          <!-- Search Bar -->
+          <div class="video-search-bar-wrap">
+            <div class="video-search-box">
+              <span class="video-search-icon" aria-hidden="true">🔍</span>
+              <input
+                type="search"
+                id="videoSearchInput"
+                class="video-search-input"
+                placeholder="Search awareness videos by topic, title, or channel (e.g. OTP, UPI, Digital Arrest, RBI)..."
+                aria-label="Search awareness videos"
+              >
+              <button type="button" id="videoSearchClear" class="video-search-clear" aria-label="Clear search" style="display: none;">✕</button>
+            </div>
+            <div id="videoResultsStatus" class="video-results-status">Showing 15 of 15 Hindi Cyber Awareness Videos</div>
+          </div>
+
+          <!-- Topic Filters -->
+          <div id="videoFilterBar" class="video-filter-pills" role="tablist" aria-label="Filter videos by cyber awareness topic">
+            <button type="button" class="cat-pill video-cat-pill active" data-cat="All">All</button>
+            <button type="button" class="cat-pill video-cat-pill" data-cat="OTP">OTP</button>
+            <button type="button" class="cat-pill video-cat-pill" data-cat="UPI">UPI</button>
+            <button type="button" class="cat-pill video-cat-pill" data-cat="Phishing">Phishing</button>
+            <button type="button" class="cat-pill video-cat-pill" data-cat="KYC">KYC</button>
+            <button type="button" class="cat-pill video-cat-pill" data-cat="Customer Care">Customer Care</button>
+            <button type="button" class="cat-pill video-cat-pill" data-cat="Job Scam">Job Scam</button>
+            <button type="button" class="cat-pill video-cat-pill" data-cat="Shopping">Shopping</button>
+            <button type="button" class="cat-pill video-cat-pill" data-cat="Investment">Investment</button>
+            <button type="button" class="cat-pill video-cat-pill" data-cat="WhatsApp">WhatsApp</button>
+            <button type="button" class="cat-pill video-cat-pill" data-cat="Social Media">Social Media</button>
+            <button type="button" class="cat-pill video-cat-pill" data-cat="QR Code">QR Code</button>
+            <button type="button" class="cat-pill video-cat-pill" data-cat="Digital Arrest">Digital Arrest</button>
+            <button type="button" class="cat-pill video-cat-pill" data-cat="Identity Theft">Identity Theft</button>
+            <button type="button" class="cat-pill video-cat-pill" data-cat="Mobile Fraud">Mobile Fraud</button>
+            <button type="button" class="cat-pill video-cat-pill" data-cat="Loan App">Loan App</button>
+          </div>
+        </div>
+
+        <div id="videosGrid" class="videos-grid">
+          <!-- Populated by js/learning.js -->
+        </div>
+
+        <!-- Required Content Disclaimer -->
+        <div class="video-library-disclaimer">
+          <span class="video-disclaimer-icon" aria-hidden="true">ℹ️</span>
+          <p>
+            CyberSathi does not produce or own these videos. These are publicly available YouTube videos created by other organizations, schools, banks, police departments, students, creators, or awareness groups. Videos are embedded for educational awareness purposes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Real Reported Fraud Cases Section -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Case Studies & Awareness</span>
+          <h2>📰 Reported Fraud Cases</h2>
+          <p>
+            Authentic summaries of publicly reported cyber fraud cases from major news sources (Indian Express, Times of India). Learn the missed warning signs, what went wrong, and test yourself with our interactive mini-quiz.
+          </p>
+          <div style="margin-top: 12px; font-size: 12.5px; color: var(--cs-muted); background: color-mix(in srgb, var(--cs-deep) 6%, var(--cs-card-bg)); padding: 8px 16px; border-radius: 999px; display: inline-block;">
+            ℹ️ Educational Notice: Personal names have been generalized to protect victim privacy while preserving educational facts.
+          </div>
+        </div>
+
+        <div id="fraudCasesGrid" class="cases-grid">
+          <!-- Populated by js/learning.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Official I4C Section -->
+    <section class="section section-tinted">
+      <div class="container">
+        <div class="card" style="border-left: 5px solid var(--cs-deep); padding: 32px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
+            <div style="max-width: 760px;">
+              <span class="eyebrow">Ministry of Home Affairs Initiative</span>
+              <h3 style="font-family: 'Outfit', sans-serif; font-size: 22px; color: var(--cs-deep); margin-bottom: 10px;">
+                Indian Cyber Crime Coordination Centre (I4C)
+              </h3>
+              <p style="font-size: 14.5px; color: var(--cs-muted); line-height: 1.6; margin-bottom: 14px;">
+                I4C acts as a nodal point in the fight against cybercrime across India. For financial fraud, reporting within the Golden Hour to helpline 1930 enables authorities to coordinate with banks to freeze stolen funds before they are withdrawn.
+              </p>
+              <div style="font-size: 13.5px; color: var(--cs-ink);">
+                <strong>Official Helpline:</strong> <a href="tel:1930" style="color: var(--cs-deep); font-weight: 800;">1930 (Toll-Free, 24x7)</a> • 
+                <strong>Online Reporting:</strong> <a href="https://cybercrime.gov.in" target="_blank" rel="noopener" style="color: var(--cs-deep); text-decoration: underline;">cybercrime.gov.in ↗</a>
+              </div>
+            </div>
+
+            <a href="https://cybercrime.gov.in" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top: 10px;">
+              Visit Official cybercrime.gov.in ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal Shell -->
+  <div id="csModal" class="cs-modal" aria-hidden="true" role="dialog">
+    <div class="cs-modal-backdrop"></div>
+    <div class="cs-modal-card">
+      <button class="cs-modal-close" aria-label="Close dialog">✕</button>
+      <div id="csModalContent"></div>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <!-- National Disclaimer Box -->
+      <div class="footer-disclaimer-box">
+        <strong>Important Clarification:</strong> CyberSathi is a grassroots community cyber-safety educational project. <strong>1930</strong> is the official National Cyber Crime Reporting Helpline operated by the Ministry of Home Affairs (I4C), Government of India. In cases of financial cyber fraud, dial <strong>1930</strong> and report on <a href="https://cybercrime.gov.in" target="_blank" rel="noopener" style="color: #38bdf8; text-decoration: underline;">cybercrime.gov.in</a> immediately.
+      </div>
+
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <strong>Cyber<span>Sathi</span></strong>
+          <p>
+            A grassroots cybersecurity literacy and community protection initiative. Awareness for every village, opportunity for every family.
+          </p>
+          <div style="margin-top: 14px;">
+            <span style="font-size: 11.5px; color: #94a3b8; display: block; text-transform: uppercase; letter-spacing: 0.05em;">National Cybercrime Helpline (Govt. of India):</span>
+            <a href="tel:1930" class="footer-helpline">📞 1930</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Pages</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="topics.html">Awareness Topics</a></li>
+            <li><a href="courses.html">Free Courses 🎓</a></li>
+            <li><a href="learning.html">Videos & Stories</a></li>
+            <li><a href="tools.html">Tools & Quiz</a></li>
+            <li><a href="emergency.html">Get Help / Emergency</a></li>
+            <li><a href="login.html" style="font-weight: 700; color: #38bdf8;">Citizen & Sathi Login 🔑</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Official Portals</h3>
+          <ul>
+            <li><a href="https://cybercrime.gov.in" target="_blank" rel="noopener">cybercrime.gov.in ↗</a></li>
+            <li><a href="https://www.myscheme.gov.in" target="_blank" rel="noopener">myScheme.gov.in ↗</a></li>
+            <li><a href="https://sancharsaathi.gov.in" target="_blank" rel="noopener">Sanchar Saathi (DoT) ↗</a></li>
+            <li><a href="https://rbikehtahai.rbi.org.in" target="_blank" rel="noopener">RBI Kehta Hai ↗</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>National Authority</h3>
+          <p style="font-size: 13.5px; color: #9cbdb8; line-height: 1.6;">
+            <strong>Indian Cyber Crime Coordination Centre (I4C)</strong><br>
+            Ministry of Home Affairs, Govt. of India<br>
+            NDCC-II Building, Jai Singh Road, New Delhi 110001<br>
+            National Helpline: <a href="tel:1930" style="color: #38bdf8; font-weight: 700;">1930</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 CyberSathi. Built for grassroots digital safety education. Not an official government entity.</span>
+        <span>For real financial cyber fraud complaints, dial <strong>1930</strong> (National Helpline, Govt. of India).</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js?v=20260929"></script>
+  <script src="js/common.js?v=20260929"></script>
+  <script src="js/auth.js?v=20260929"></script>
+  <script src="js/i18n.js?v=20260929"></script>
+  <script src="js/learning.js?v=20260929"></script>
+</body>
+</html>

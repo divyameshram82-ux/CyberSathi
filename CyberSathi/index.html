@@ -1,0 +1,723 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#086b8b" />
+  <meta name="description" content="CyberSathi — Awareness for Every Village, Opportunity for Every Family. A comprehensive digital cyber-safety platform." />
+  <title>CyberSathi — Digital Safety for Every Family</title>
+
+  <!-- Global Stylesheet -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+
+  <!-- Supabase Client & Config -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#mainContent">Skip to content</a>
+
+  <!-- National Cyber Crime Helpline Strip (Government of India) -->
+  <aside class="national-alert-bar" aria-label="National Cybercrime Reporting Helpline">
+    <div class="container">
+      <div class="alert-item">
+        <span class="alert-badge">Govt. of India</span>
+        <span>National Cyber Crime Helpline:</span>
+        <a href="tel:1930" class="alert-phone-link">📞 <strong>1930</strong> (Toll-Free)</a>
+      </div>
+      <div class="alert-secondary-links">
+        <span>CyberSathi Community Initiative</span>
+        <span>•</span>
+        <a href="https://cybercrime.gov.in" target="_blank" rel="noopener">cybercrime.gov.in ↗</a>
+        <span>•</span>
+        <a href="emergency.html">5-Step Protocol ↓</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Site Navigation Taskbar -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="CyberSathi Home">
+        <div class="brand-shield-wrap">🛡️</div>
+        <div class="brand-text">
+          <strong>Cyber<span>Sathi</span></strong>
+          <small>Safe Digital Lives • Stronger Communities</small>
+        </div>
+      </a>
+
+      <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <a class="nav-link" href="index.html" aria-current="page">Home</a>
+        <a class="nav-link" href="topics.html">Topics</a>
+        <a class="nav-link" href="courses.html">Courses 🎓</a>
+        <a class="nav-link" href="learning.html">Videos</a>
+        <a class="nav-link" href="#scamSimulatorHomeSection">Scam Simulator 🕵️</a>
+        <a class="nav-link" href="tools.html">Quiz & Tools</a>
+        <a class="nav-link" href="emergency.html">Emergency 🚨</a>
+      </nav>
+
+      <div class="nav-tools">
+        <div class="lang-select-wrap">
+          <label class="sr-only" for="siteLangSelect">Language</label>
+          <select id="siteLangSelect" class="lang-select" aria-label="Select Language">
+            <option value="en">🇬🇧 English</option>
+            <option value="hi">🇮🇳 हिंदी</option>
+            <option value="mr">🇮🇳 मराठी</option>
+          </select>
+        </div>
+        <button id="themeToggle" class="icon-btn" aria-label="Toggle Dark/Light Mode">☀️</button>
+        <div id="navAuthSlot" class="nav-auth-slot"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="mainContent">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow" style="background: rgba(255,255,255,0.14); color: #fff; border: 1px solid rgba(255,255,255,0.22);">Grassroots Cyber Safety</span>
+          <h1>Digital Safety for Every <span>Family.</span></h1>
+          <p>
+            Awareness for every village, opportunity for every family. CyberSathi makes cyber safety easy to understand, easy to practise and easy to share across generations.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-amber" href="#scamSimulatorHomeSection">
+              <span>🕵️ Scam Simulator</span>
+            </a>
+            <a class="btn btn-blue" href="#homeVoiceSaathi">
+              <span>🎙️ Speak to Voice Saathi AI</span>
+            </a>
+            <a class="btn btn-outline" href="courses.html" style="color: #fff; border-color: rgba(255,255,255,0.45); background: rgba(255,255,255,0.06);">
+              <span>Free Awareness Courses 🎓</span>
+            </a>
+            <a class="btn btn-outline" href="learning.html" style="color: #fff; border-color: rgba(255,255,255,0.45); background: rgba(255,255,255,0.06);">
+              <span>Videos & Fraud Cases 🎬</span>
+            </a>
+            <a class="btn btn-danger" href="emergency.html">
+              <span>⚠️ Emergency Help (1930)</span>
+            </a>
+          </div>
+
+          <div class="hero-pills" aria-label="Core Safety Reminders">
+            <span class="hero-pill">🔐 OTP? Never share it</span>
+            <span class="hero-pill">✓ Think Before You Click</span>
+            <span class="hero-pill">📱 Receiving Money Needs No PIN</span>
+            <span class="hero-pill">🛡️ Stay Alert. Stay Safe.</span>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-media-card">
+            <div class="hero-image-wrapper">
+              <img src="assets/images/hero-family-safety.jpg" alt="Indian rural family learning cyber safety together" class="hero-main-img" />
+              <div class="hero-image-overlay"></div>
+            </div>
+
+            <div class="hero-floating-badge badge-top-right">
+              <span class="badge-pulse"></span>
+              <span>Village Digital Shield</span>
+            </div>
+
+            <div class="hero-floating-badge badge-bottom-left">
+              <span style="font-size: 18px;">🏛️</span>
+              <div>
+                <strong style="display: block; font-size: 12.5px; line-height: 1.2;">Helpline 1930 & I4C</strong>
+                <small style="color: #94a3b8; font-size: 10.5px;">MHA, Govt. of India</small>
+              </div>
+            </div>
+
+            <div class="hero-stats-glass">
+              <div>
+                <span class="art-stat-val">5</span>
+                <span class="art-stat-lbl">Courses</span>
+              </div>
+              <div>
+                <span class="art-stat-val">18+</span>
+                <span class="art-stat-lbl">Topics</span>
+              </div>
+              <div>
+                <span class="art-stat-val">3</span>
+                <span class="art-stat-lbl">Languages</span>
+              </div>
+              <div>
+                <span class="art-stat-val">100%</span>
+                <span class="art-stat-lbl">Free</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Voice Saathi AI Section on Home Page -->
+    <!-- 🕵️ SCAM SIMULATOR — CAN YOU OUTSMART A SCAMMER? -->
+    <section class="section" id="scamSimulatorHomeSection">
+      <div class="container">
+        <div class="scam-simulator-entry-card">
+          <div>
+            <span class="scam-simulator-badge">🕵️ SCAM SIMULATOR</span>
+            <h2>Can You Outsmart a Scammer?</h2>
+            <p>
+              Experience realistic scam situations, make your own decisions, and learn how attackers manipulate people.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+              <button type="button" class="btn btn-amber launch-scam-simulator-btn" style="padding: 13px 26px; font-size: 15px; font-weight: 800; box-shadow: 0 8px 22px rgba(245, 158, 11, 0.35);">
+                🎯 Start Simulation
+              </button>
+              <a href="tools.html#scamSimulatorSection" class="btn btn-outline" style="color: #fff; border-color: rgba(255, 255, 255, 0.35); background: rgba(255, 255, 255, 0.08);">
+                🛡️ Open in Full Tools Lab ↗
+              </a>
+            </div>
+          </div>
+
+          <div class="scam-simulator-entry-preview">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-size: 12px; color: #94a3b8; font-weight: 700;">
+              <span>📱 LIVE THREAT PREVIEW</span>
+              <span style="color: #fbbf24;">8 INTERACTIVE MISSIONS</span>
+            </div>
+            <div style="background: rgba(2, 6, 23, 0.75); border-left: 3px solid #ef4444; border-radius: 10px; padding: 12px 14px; font-size: 13.5px; color: #f1f5f9; margin-bottom: 12px; line-height: 1.5;">
+              "Dear Customer, your bank account will be blocked today due to incomplete KYC. Click immediately: bit.ly/kyc-update-fast"
+            </div>
+            <div style="display: flex; justify-content: space-between; gap: 8px; font-size: 12px; font-weight: 700; color: #a7f3d0;">
+              <span>🛑 STOP</span>
+              <span>🔍 VERIFY</span>
+              <span>🛡️ ACT SAFELY</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Scam Simulator Mount -->
+        <div id="scamSimulatorHomeMount" class="cybersathi-scam-simulator-mount"></div>
+      </div>
+    </section>
+
+    <section class="section" id="homeVoiceSaathi">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Multilingual Voice Cyber Assistant</span>
+          <h2>🎙️ Voice Saathi — Speak Your Cyber Problem</h2>
+          <p>
+            Tap the microphone and speak in <strong>English, Hindi (हिन्दी), or Marathi (मराठी)</strong>. Voice Saathi detects 12 major scam patterns, shows warning signs, and speaks the safety solution aloud.
+          </p>
+
+          <div class="voice-lang-selector" style="display: flex; justify-content: center; gap: 10px; margin-top: 16px;">
+            <button class="cat-pill voice-lang-btn active" data-lang="hi-IN" data-voice-lang="hi-IN">🇮🇳 हिन्दी</button>
+            <button class="cat-pill voice-lang-btn" data-lang="en-IN" data-voice-lang="en-IN">🇬🇧 English</button>
+            <button class="cat-pill voice-lang-btn" data-lang="mr-IN" data-voice-lang="mr-IN">🇮🇳 मराठी</button>
+          </div>
+        </div>
+
+        <div class="voice-console">
+          <!-- File Protocol Warning Notice (Auto-shown only when opening via file://) -->
+          <div id="voiceFileNotice" style="display: none; background: #fffbeb; border: 1px solid #fde68a; border-left: 4px solid #f59e0b; border-radius: 10px; padding: 12px 16px; margin: 0 auto 18px; max-width: 680px; text-align: left; font-size: 13.5px; color: #92400e; line-height: 1.5;">
+            <strong>⚠️ Local Protocol Notice:</strong> Voice Saathi requires a local HTTP server or HTTPS. Please open CyberSathi using the Antigravity local preview/server.
+          </div>
+
+          <div class="voice-privacy-notice" style="background: rgba(220, 38, 38, 0.08); border: 1px solid rgba(220, 38, 38, 0.22); border-radius: 12px; padding: 12px 18px; margin-bottom: 24px; font-size: 13.5px; color: var(--cs-danger); display: flex; align-items: center; justify-content: center; gap: 10px;">
+            <span style="font-size: 18px;">🔒</span>
+            <span><strong>Privacy Rule:</strong> Never share OTPs, passwords, PINs, CVVs, Aadhaar numbers, or bank login credentials with Voice Saathi.</span>
+          </div>
+
+          <div class="mic-container" style="position: relative; display: inline-block;">
+            <button id="voiceMicBtn" class="mic-button" aria-label="Tap to speak with Voice Saathi">
+              <span id="voiceMicIcon">🎙️</span>
+            </button>
+            <div id="micPulseRing" class="mic-pulse-ring"></div>
+          </div>
+
+          <div id="voiceStatus" class="voice-status">🎙️ Tap to Speak</div>
+          <div id="voiceSubStatus" style="font-size: 14px; color: var(--cs-muted); margin-bottom: 8px;">
+            Tap the microphone and tell us what happened in English, Hindi, or Marathi.
+          </div>
+
+          <!-- Live Sound Wave Visualizer while Recording -->
+          <div id="voiceWaveVisualizer" class="voice-wave-visualizer" style="display: none;" aria-hidden="true">
+            <span class="voice-wave-bar" style="animation-delay: 0.1s;"></span>
+            <span class="voice-wave-bar" style="animation-delay: 0.25s;"></span>
+            <span class="voice-wave-bar" style="animation-delay: 0.4s;"></span>
+            <span class="voice-wave-bar" style="animation-delay: 0.15s;"></span>
+            <span class="voice-wave-bar" style="animation-delay: 0.3s;"></span>
+            <span class="voice-wave-bar" style="animation-delay: 0.5s;"></span>
+            <span class="voice-wave-bar" style="animation-delay: 0.2s;"></span>
+          </div>
+
+          <!-- Quick Done Speaking Action -->
+          <button id="voiceDoneSpeakingBtn" class="btn btn-danger" style="display: none; margin: 6px auto 16px; padding: 10px 24px; font-weight: 700; border-radius: 999px; box-shadow: 0 4px 14px rgba(220, 38, 38, 0.35);">
+            <span>⏹️ Done Speaking — Analyze My Problem</span>
+          </button>
+
+          <div class="voice-controls-bar" style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 22px;">
+            <button id="voiceStartBtn" class="btn btn-primary" style="padding: 9px 18px; font-size: 13.5px;">
+              <span>🎙️ Start Recording</span>
+            </button>
+            <button id="voiceStopBtn" class="btn btn-outline" style="padding: 9px 18px; font-size: 13.5px;" disabled>
+              <span>⏹ Stop Listening</span>
+            </button>
+            <button id="voiceTryAgainBtn" class="btn btn-outline" style="padding: 9px 18px; font-size: 13.5px;">
+              <span>🔄 Try Again</span>
+            </button>
+            <button id="voiceClearBtn" class="btn btn-outline" style="padding: 9px 18px; font-size: 13.5px;">
+              <span>✕ Clear</span>
+            </button>
+          </div>
+
+          <!-- Instant 1-Tap Voice Problem Solvers -->
+          <div class="voice-hero-shortcuts" style="background: color-mix(in srgb, var(--cs-deep) 4%, var(--cs-card-bg)); border: 1.5px dashed var(--cs-line-strong); border-radius: 14px; padding: 14px 18px; margin-bottom: 22px; text-align: left;">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 10px;">
+              <span style="font-size: 13.5px; font-weight: 700; color: var(--cs-deep); display: flex; align-items: center; gap: 6px;">
+                ⚡ <span>बोलें या 1-टैप में पूछें (Tap any problem to hear instant spoken AI solution):</span>
+              </span>
+              <span style="font-size: 12px; color: var(--cs-muted); background: var(--cs-card-bg); padding: 3px 10px; border-radius: 999px; border: 1px solid var(--cs-line);">🔊 Voice Saathi speaks recovery aloud</span>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+              <button type="button" class="voice-sample-btn quick-voice-trigger" data-voice-topic="kyc_fraud" data-voice-query="Mere sath KYC fraud hogya hain mein kya karu" style="border-color: var(--cs-danger); color: var(--cs-danger); font-weight: 700; background: color-mix(in srgb, var(--cs-danger) 6%, var(--cs-card-bg));">
+                🪪 "मेरे साथ KYC फ्रॉड हो गया, क्या करूँ?"
+              </button>
+              <button type="button" class="voice-sample-btn quick-voice-trigger" data-voice-topic="phishing" data-voice-query="Mere saath phishing attack ho gaya hai kya karen" style="border-color: var(--cs-danger); color: var(--cs-danger); font-weight: 700; background: color-mix(in srgb, var(--cs-danger) 6%, var(--cs-card-bg));">
+                🎣 "मेरे साथ फिशिंग अटैक हो गया"
+              </button>
+              <button type="button" class="voice-sample-btn quick-voice-trigger" data-voice-topic="emergency_money_lost" data-voice-query="Khate se paise kat gaye dhokha ho gaya" style="border-color: var(--cs-danger); color: var(--cs-danger); font-weight: 700; background: color-mix(in srgb, var(--cs-danger) 6%, var(--cs-card-bg));">
+                🚨 "खाते से पैसे कट गए / ठगी हो गई"
+              </button>
+              <button type="button" class="voice-sample-btn quick-voice-trigger" data-voice-topic="wrong_upi_transfer" data-voice-query="Galti se galat UPI number par paise chale gaye">
+                🔄 "गलत UPI पर पैसे चले गए"
+              </button>
+              <button type="button" class="voice-sample-btn quick-voice-trigger" data-voice-topic="otp_fraud" data-voice-query="Caller is asking for bank OTP and PIN">
+                🔐 "बैंक अधिकारी बनकर OTP मांग रहे हैं"
+              </button>
+              <button type="button" class="voice-sample-btn quick-voice-trigger" data-voice-topic="digital_arrest_scam" data-voice-query="Police video call threatening digital arrest">
+                👮 "डिजिटल अरेस्ट की धमकी मिल रही है"
+              </button>
+              <button type="button" class="voice-sample-btn quick-voice-trigger" data-voice-topic="lost_stolen_phone" data-voice-query="Mobile phone chori ho gaya bank kaise bachaye">
+                📱 "मोबाइल फोन चोरी या गुम हो गया"
+              </button>
+            </div>
+          </div>
+
+          <div id="voiceSaidBox" class="voice-said-box" style="display: none; background: rgba(8, 107, 139, 0.05); border: 1px solid var(--cs-line); border-radius: 12px; padding: 14px 20px; text-align: left; margin-bottom: 24px;">
+            <div style="font-size: 12.5px; font-weight: 700; color: var(--cs-deep); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px;">
+              📝 You said:
+            </div>
+            <div id="voiceSaidText" style="font-size: 16px; color: var(--cs-ink); font-weight: 500; line-height: 1.5;"></div>
+          </div>
+
+          <div id="voiceAnalysisCard" class="voice-analysis-card" style="display: none; text-align: left; background: var(--cs-card-bg); border: 1.5px solid var(--cs-deep); border-radius: 16px; padding: 24px; box-shadow: var(--cs-shadow); margin-bottom: 24px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; border-bottom: 1px solid var(--cs-line); padding-bottom: 14px;">
+              <div>
+                <span style="font-size: 12px; font-weight: 700; color: var(--cs-muted); text-transform: uppercase;">🧠 Possible issue:</span>
+                <h3 id="voiceIssueBadge" style="font-family: 'Outfit', sans-serif; font-size: 20px; color: var(--cs-deep); margin-top: 2px;"></h3>
+              </div>
+              <button id="voiceListenBtn" class="btn btn-blue" style="padding: 8px 16px; font-size: 13px;">
+                <span>🔊 Listen to Solution</span>
+              </button>
+            </div>
+
+            <div style="margin-bottom: 16px;">
+              <h4 style="font-size: 14px; font-weight: 700; color: var(--cs-danger); margin-bottom: 6px;">
+                ⚠️ Warning Signs:
+              </h4>
+              <ul id="voiceWarningsList" style="padding-left: 20px; font-size: 14px; color: var(--cs-ink); line-height: 1.5;"></ul>
+            </div>
+
+            <div style="background: color-mix(in srgb, var(--cs-green) 8%, var(--cs-card-bg)); border-left: 4px solid var(--cs-green); border-radius: var(--cs-radius-sm); padding: 14px 18px;">
+              <h4 style="font-size: 14px; font-weight: 700; color: var(--cs-green); margin-bottom: 6px;">
+                🛡️ What You Should Do:
+              </h4>
+              <ul id="voiceActionsList" style="padding-left: 20px; font-size: 14px; color: var(--cs-ink); line-height: 1.5;"></ul>
+            </div>
+          </div>
+
+          <div id="voiceTextFallbackWrap" class="voice-text-fallback" style="border-top: 1px solid var(--cs-line); padding-top: 20px; margin-top: 20px; text-align: left;">
+            <label for="voiceTextInput" style="font-size: 13.5px; font-weight: 700; color: var(--cs-deep); display: block; margin-bottom: 6px;">
+              ⌨️ Prefer typing? Describe your issue here:
+            </label>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <input type="text" id="voiceTextInput" placeholder="e.g. Someone is asking for my OTP or Caller says Skype police arrest..." style="flex: 1; min-width: 260px; padding: 10px 14px; border: 1.5px solid var(--cs-line-strong); border-radius: 10px; font-family: inherit; font-size: 14px;" />
+              <button id="voiceTextSubmitBtn" class="btn btn-primary" style="padding: 10px 20px; font-size: 13.5px;">
+                Analyze Problem
+              </button>
+            </div>
+          </div>
+
+          <div style="border-top: 1px solid var(--cs-line); padding-top: 18px; margin-top: 20px; text-align: left;">
+            <span style="font-size: 13px; font-weight: 700; color: var(--cs-muted); display: block; margin-bottom: 10px;">
+              💡 Or tap a common situation to test immediately:
+            </span>
+            <div class="voice-sample-questions">
+              <button class="voice-sample-btn" data-voice-topic="otp_fraud">🔐 Bank asking for OTP?</button>
+              <button class="voice-sample-btn" data-voice-topic="upi_fraud">💳 Scan QR to receive money?</button>
+              <button class="voice-sample-btn" data-voice-topic="fake_job_scam">💼 Job asking for task deposit?</button>
+              <button class="voice-sample-btn" data-voice-topic="digital_arrest_scam">👮 Skype call from police (Digital Arrest)?</button>
+              <button class="voice-sample-btn" data-voice-topic="fake_kyc">🪪 SMS to update bank KYC?</button>
+              <button class="voice-sample-btn" data-voice-topic="fake_customer_care">🎧 Customer care asked for AnyDesk?</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW HIGHLIGHTED SECTION: Free Awareness Courses -->
+    <section class="section section-tinted" style="background: linear-gradient(180deg, #f0fdf9 0%, #e6f7f4 100%); border-top: 1px solid #d1fae5; border-bottom: 1px solid #d1fae5;">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow" style="background: #dcfce7; color: #15803d; border: 1px solid #86efac;">100% Free • Interactive Pathway</span>
+          <h2>Free Community Cyber Awareness Courses</h2>
+          <p>
+            Customized, bite-sized courses tailored for senior citizens, students, working professionals, women self-help groups, and farmers. Learn step-by-step with dual-language support, earn XP & badges, and receive an educational completion certificate.
+          </p>
+        </div>
+
+        <!-- 🎓 Interactive Multilingual Cyber-Safety Learning Pathway (Duolingo-Style) -->
+        <div id="cyberAcademyHomeMount" class="cybersathi-academy-mount"></div>
+
+        <div class="featured-courses-grid">
+          <!-- Course 1: Senior Citizens -->
+          <article class="featured-course-card">
+            <div class="featured-course-media">
+              <img src="assets/images/course-senior-citizens.jpg" alt="Senior Citizens Cyber Safety" loading="lazy" />
+              <div style="position: absolute; top: 10px; left: 10px; display: flex; gap: 6px;">
+                <span style="background: #fef3c7; color: #b45309; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 999px;">👴 Senior Citizens</span>
+                <span style="background: #16a34a; color: #fff; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 999px;">Free</span>
+              </div>
+              <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.7); color: #fff; font-size: 11px; padding: 2px 8px; border-radius: 6px;">
+                ⏱️ 25 Mins • 4 Modules
+              </div>
+            </div>
+            <div class="featured-course-body">
+              <h3>Digital Shield for Seniors</h3>
+              <p>Recognize fake police/CBI "Digital Arrest" threats, pension Jeevan Praman OTP frauds, and midnight electricity disconnection SMS traps.</p>
+              <a href="courses.html?filter=senior" class="btn btn-blue" style="justify-content: center; font-size: 13px; padding: 8px 14px;">
+                Start Free Course →
+              </a>
+            </div>
+          </article>
+
+          <!-- Course 2: Students & Youth -->
+          <article class="featured-course-card">
+            <div class="featured-course-media">
+              <img src="assets/images/course-students-youth.jpg" alt="Students & Youth Cyber Defense" loading="lazy" />
+              <div style="position: absolute; top: 10px; left: 10px; display: flex; gap: 6px;">
+                <span style="background: #dbeafe; color: #1d4ed8; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 999px;">🎓 Students & Youth</span>
+                <span style="background: #16a34a; color: #fff; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 999px;">Free</span>
+              </div>
+              <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.7); color: #fff; font-size: 11px; padding: 2px 8px; border-radius: 6px;">
+                ⏱️ 30 Mins • 4 Modules
+              </div>
+            </div>
+            <div class="featured-course-body">
+              <h3>Student & Job Seeker Defense</h3>
+              <p>Unmask fake Telegram work-from-home tasks, illegal loan apps stealing contacts, campus placement fees, and social media extortion.</p>
+              <a href="courses.html?filter=students" class="btn btn-blue" style="justify-content: center; font-size: 13px; padding: 8px 14px;">
+                Start Free Course →
+              </a>
+            </div>
+          </article>
+
+          <!-- Course 3: Working Professionals -->
+          <article class="featured-course-card">
+            <div class="featured-course-media">
+              <img src="assets/images/course-working-professionals.jpg" alt="Working Professionals Security" loading="lazy" />
+              <div style="position: absolute; top: 10px; left: 10px; display: flex; gap: 6px;">
+                <span style="background: #d1fae5; color: #047857; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 999px;">💼 Working Persons</span>
+                <span style="background: #16a34a; color: #fff; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 999px;">Free</span>
+              </div>
+              <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.7); color: #fff; font-size: 11px; padding: 2px 8px; border-radius: 6px;">
+                ⏱️ 35 Mins • 4 Modules
+              </div>
+            </div>
+            <div class="featured-course-body">
+              <h3>Workplace & Remote Security</h3>
+              <p>Master corporate spear-phishing detection, fake HR salary update links, unencrypted public Wi-Fi risks, and multi-factor authentication.</p>
+              <a href="courses.html?filter=professionals" class="btn btn-blue" style="justify-content: center; font-size: 13px; padding: 8px 14px;">
+                Start Free Course →
+              </a>
+            </div>
+          </article>
+
+          <!-- Course 4: Women & SHGs -->
+          <article class="featured-course-card">
+            <div class="featured-course-media">
+              <img src="assets/images/course-women-shg.jpg" alt="Women & SHGs Cyber Literacy" loading="lazy" />
+              <div style="position: absolute; top: 10px; left: 10px; display: flex; gap: 6px;">
+                <span style="background: #fce7f3; color: #be185d; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 999px;">👩 Women & SHGs</span>
+                <span style="background: #16a34a; color: #fff; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 999px;">Free</span>
+              </div>
+              <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.7); color: #fff; font-size: 11px; padding: 2px 8px; border-radius: 6px;">
+                ⏱️ 25 Mins • 4 Modules
+              </div>
+            </div>
+            <div class="featured-course-body">
+              <h3>Bachat Gat Digital Safety</h3>
+              <p>The universal UPI rule: receiving money NEVER needs a PIN. Safeguard collective group funds, WhatsApp privacy, and online business.</p>
+              <a href="courses.html?filter=women" class="btn btn-blue" style="justify-content: center; font-size: 13px; padding: 8px 14px;">
+                Start Free Course →
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <div style="text-align: center; margin-top: 36px;">
+          <a href="courses.html" class="btn btn-primary" style="padding: 12px 28px; font-size: 15px;">
+            <span>Explore All 5 Courses & Earn Completion Badges 🎓 →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Our Mission</span>
+          <h2>Why CyberSathi?</h2>
+          <p>
+            Technology should create opportunities, not fear. As digital payments and mobile banking reach every rural household, cyber fraudsters increasingly target the vulnerable. CyberSathi bridges the knowledge gap with plain-language, relatable education.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;">
+          <div class="card" style="border-top: 4px solid var(--cs-deep);">
+            <span style="font-size: 34px; margin-bottom: 12px; display: block;">🌾</span>
+            <h3 style="font-size: 19px; color: var(--cs-deep); margin-bottom: 8px;">Village-Centric Language</h3>
+            <p style="font-size: 14px; color: var(--cs-muted); line-height: 1.6;">
+              No complicated technical jargon. We explain threats in English, Hindi, and Marathi using relatable village scenarios like mandi payments, crop insurance, and pension calls.
+            </p>
+          </div>
+
+          <div class="card" style="border-top: 4px solid var(--cs-green);">
+            <span style="font-size: 34px; margin-bottom: 12px; display: block;">🗣️</span>
+            <h3 style="font-size: 19px; color: var(--cs-deep); margin-bottom: 8px;">Voice Saathi Accessibility</h3>
+            <p style="font-size: 14px; color: var(--cs-muted); line-height: 1.6;">
+              Designed for elders and non-literate digital users. Simply tap the microphone to ask questions by voice and receive spoken advice in your preferred language.
+            </p>
+          </div>
+
+          <div class="card" style="border-top: 4px solid var(--cs-blue);">
+            <span style="font-size: 34px; margin-bottom: 12px; display: block;">🤝</span>
+            <h3 style="font-size: 19px; color: var(--cs-deep); margin-bottom: 8px;">Volunteer Brigade</h3>
+            <p style="font-size: 14px; color: var(--cs-muted); line-height: 1.6;">
+              Training college students and youth to act as trusted cyber safety companions for their own gram panchayats, cooperative banks, and families.
+            </p>
+          </div>
+
+          <div class="card" style="border-top: 4px solid var(--cs-danger);">
+            <span style="font-size: 34px; margin-bottom: 12px; display: block;">⚡</span>
+            <h3 style="font-size: 19px; color: var(--cs-deep); margin-bottom: 8px;">Golden Hour Protection</h3>
+            <p style="font-size: 14px; color: var(--cs-muted); line-height: 1.6;">
+              Clear step-by-step guidance on what to do in the critical first 2 hours after a scam: contacting your bank, preserving evidence, and calling 1930.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who We Help Section -->
+    <section class="section section-tinted">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Community Protection</span>
+          <h2>Who We Help</h2>
+          <p>
+            Digital safety requires customized approaches for different age groups and livelihoods. Discover how CyberSathi supports each member of your community.
+          </p>
+        </div>
+
+        <div class="audience-grid">
+          <article class="card audience-card">
+            <div class="audience-header">
+              <span class="audience-icon">🧒</span>
+              <div>
+                <h3>Children & Youth</h3>
+                <span class="audience-tag">Gaming & Schools</span>
+              </div>
+            </div>
+            <p>Guarding against cyberbullying, unsafe online games, fake profiles, and stranger danger.</p>
+          </article>
+
+          <article class="card audience-card">
+            <div class="audience-header">
+              <span class="audience-icon">🎓</span>
+              <div>
+                <h3>College Students</h3>
+                <span class="audience-tag">Job Seekers</span>
+              </div>
+            </div>
+            <p>Identifying fake work-from-home tasks, deceptive Telegram groups, and illegal loan apps.</p>
+          </article>
+
+          <article class="card audience-card">
+            <div class="audience-header">
+              <span class="audience-icon">👩</span>
+              <div>
+                <h3>Women & SHGs</h3>
+                <span class="audience-tag">Self-Help Groups</span>
+              </div>
+            </div>
+            <p>Safe UPI digital transactions, social media harassment prevention, and micro-loan safety.</p>
+          </article>
+
+          <article class="card audience-card">
+            <div class="audience-header">
+              <span class="audience-icon">👴</span>
+              <div>
+                <h3>Senior Citizens</h3>
+                <span class="audience-tag">Pensions & Health</span>
+              </div>
+            </div>
+            <p>Defending against fake bank manager calls, pension verification threats, and Digital Arrest fears.</p>
+          </article>
+
+          <article class="card audience-card">
+            <div class="audience-header">
+              <span class="audience-icon">🌾</span>
+              <div>
+                <h3>Farmers & Rural Producers</h3>
+                <span class="audience-tag">Agriculture</span>
+              </div>
+            </div>
+            <p>Verifying PM-Kisan subsidy portals, avoiding fertilizer buyer traps, and safe mandi payments.</p>
+          </article>
+
+          <article class="card audience-card">
+            <div class="audience-header">
+              <span class="audience-icon">🏪</span>
+              <div>
+                <h3>Local Shopkeepers</h3>
+                <span class="audience-tag">Small Businesses</span>
+              </div>
+            </div>
+            <p>Spotting fake buyer QR codes, tampered merchant stickers, and falsified payment screenshots.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature Hubs -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Explore CyberSathi</span>
+          <h2>Explore Feature Hubs</h2>
+          <p>
+            Dive into our multi-page interactive learning modules, multimedia library, and reporting facilities.
+          </p>
+        </div>
+
+        <div class="hub-grid">
+          <article class="card hub-card">
+            <div class="hub-icon">📚</div>
+            <h3>18 Cyber Threat Guides</h3>
+            <p>Deep-dive into OTP fraud, UPI collect traps, phishing SMS, fake customer care, deepfakes, and SIM swap schemes with interactive checklists.</p>
+            <a href="topics.html" class="btn btn-outline" style="align-self: flex-start;">View Threat Topics →</a>
+          </article>
+
+          <article class="card hub-card">
+            <div class="hub-icon">🎬</div>
+            <h3>Videos & Real Cases</h3>
+            <p>Watch curated awareness videos from RBI & NPCI, follow step-by-step animated stories, and listen to reported real-world fraud case studies.</p>
+            <a href="learning.html" class="btn btn-outline" style="align-self: flex-start;">Explore Learning Media →</a>
+          </article>
+
+          <article class="card hub-card">
+            <div class="hub-icon">🎙️</div>
+            <h3>Voice Saathi & Quiz</h3>
+            <p>Talk to our multilingual AI assistant Voice Saathi, challenge your knowledge with the interactive cyber quiz, and view verified government portals.</p>
+            <a href="tools.html" class="btn btn-outline" style="align-self: flex-start;">Launch Interactive Tools →</a>
+          </article>
+
+          <article class="card hub-card">
+            <div class="hub-icon">🚨</div>
+            <h3>Emergency Help & Report</h3>
+            <p>Follow the 5-step emergency response checklist if you were scammed, log a community report, or request a call from a trained volunteer.</p>
+            <a href="emergency.html" class="btn btn-danger" style="align-self: flex-start;">Get Emergency Support →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal Shell -->
+  <div id="csModal" class="cs-modal" aria-hidden="true" role="dialog">
+    <div class="cs-modal-backdrop"></div>
+    <div class="cs-modal-card">
+      <button class="cs-modal-close" aria-label="Close dialog">✕</button>
+      <div id="csModalContent"></div>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <!-- National Disclaimer Box -->
+      <div class="footer-disclaimer-box">
+        <strong>Important Clarification:</strong> CyberSathi is a grassroots community cyber-safety educational project. <strong>1930</strong> is the official National Cyber Crime Reporting Helpline operated by the Ministry of Home Affairs (I4C), Government of India. In cases of financial cyber fraud, dial <strong>1930</strong> and report on <a href="https://cybercrime.gov.in" target="_blank" rel="noopener" style="color: #38bdf8; text-decoration: underline;">cybercrime.gov.in</a> immediately.
+      </div>
+
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <strong>Cyber<span>Sathi</span></strong>
+          <p>
+            A grassroots cybersecurity literacy and community protection initiative. Awareness for every village, opportunity for every family.
+          </p>
+          <div style="margin-top: 14px;">
+            <span style="font-size: 11.5px; color: #94a3b8; display: block; text-transform: uppercase; letter-spacing: 0.05em;">National Cybercrime Helpline (Govt. of India):</span>
+            <a href="tel:1930" class="footer-helpline">📞 1930</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Pages</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="topics.html">Awareness Topics</a></li>
+            <li><a href="courses.html">Free Courses 🎓</a></li>
+            <li><a href="learning.html">Videos & Stories</a></li>
+            <li><a href="tools.html">Tools & Quiz</a></li>
+            <li><a href="emergency.html">Get Help / Emergency</a></li>
+            <li><a href="login.html" style="font-weight: 700; color: #38bdf8;">Citizen & Sathi Login 🔑</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Official Portals</h3>
+          <ul>
+            <li><a href="https://cybercrime.gov.in" target="_blank" rel="noopener">cybercrime.gov.in ↗</a></li>
+            <li><a href="https://www.myscheme.gov.in" target="_blank" rel="noopener">myScheme.gov.in ↗</a></li>
+            <li><a href="https://sancharsaathi.gov.in" target="_blank" rel="noopener">Sanchar Saathi (DoT) ↗</a></li>
+            <li><a href="https://rbikehtahai.rbi.org.in" target="_blank" rel="noopener">RBI Kehta Hai ↗</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>National Authority</h3>
+          <p style="font-size: 13.5px; color: #9cbdb8; line-height: 1.6;">
+            <strong>Indian Cyber Crime Coordination Centre (I4C)</strong><br>
+            Ministry of Home Affairs, Govt. of India<br>
+            NDCC-II Building, Jai Singh Road, New Delhi 110001<br>
+            National Helpline: <a href="tel:1930" style="color: #38bdf8; font-weight: 700;">1930</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 CyberSathi. Built for grassroots digital safety education. Not an official government entity.</span>
+        <span>For real financial cyber fraud complaints, dial <strong>1930</strong> (National Helpline, Govt. of India).</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js?v=20261006_voicefix"></script>
+  <script src="js/store.js?v=20261006_voicefix"></script>
+  <script src="js/common.js?v=20261006_voicefix"></script>
+  <script src="js/auth.js?v=20261006_voicefix"></script>
+  <script src="js/i18n.js?v=20261006_voicefix"></script>
+  <script src="js/tools.js?v=20261006_voicefix"></script>
+  <script src="js/scam-simulator.js?v=20261006_voicefix"></script>
+  <script src="js/cyber-academy.js?v=20261006_voicefix"></script>
+</body>
+</html>
